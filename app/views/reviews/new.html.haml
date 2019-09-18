@@ -4,4 +4,6 @@
     = f.text_field :title
     = f.label :text
     = f.text_field :text
+    = f.fields_for :photos do |img|
+      = img.file_field :image,type:"file"
     = f.submit
