@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_052012) do
+ActiveRecord::Schema.define(version: 2019_09_18_060239) do
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image", null: false
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2019_09_18_052012) do
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", null: false
+    t.string "ancestry"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["ancestry"], name: "index_prefectures_on_ancestry"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

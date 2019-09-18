@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @review.photos.build
   end
 
   def create
@@ -20,6 +21,7 @@ class ReviewsController < ApplicationController
       params.require(:review).permit(
         :title,
         :text,
+        photos_attributes:[:id,:image]
         ).merge(user_id: current_user.id) 
     end
 
