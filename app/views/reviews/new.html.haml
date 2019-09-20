@@ -6,4 +6,5 @@
     = f.text_field :text
     = f.fields_for :photos do |img|
       = img.file_field :image,type:"file"
-    = f.submit
+    = f.select :prefecture_id ,options_for_select(@prefecture.map{|p|[p.name, p.id]}) , prompt: "---"
+    = f.submit  
