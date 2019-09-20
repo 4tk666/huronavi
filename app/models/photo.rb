@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-  belongs_to :review
+  belongs_to :review 
 
   mount_uploader :image, ImageUploader
 
