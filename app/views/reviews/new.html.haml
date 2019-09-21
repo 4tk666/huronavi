@@ -7,4 +7,14 @@
     = f.fields_for :photos do |img|
       = img.file_field :image,type:"file"
     = f.select :prefecture_id ,options_for_select(@prefecture.map{|p|[p.name, p.id]}) , prompt: "---"
+    = f.label :address
+    = f.text_field :address
+    = f.label :price
+    = f.text_field :price
+    = f.label :access
+    = f.text_field :access
+    = f.label :holiday
+    = f.text_field :holiday
+    = f.label :bath_time
+    = f.text_field :bath_time
     = f.submit  

@@ -19,11 +19,34 @@ class ReviewsController < ApplicationController
       end
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to root_path
+  end
+
   private
     def review_params
       params.require(:review).permit(
         :title,
         :text,
+        :address,
+        :price,
+        :access,
+        :holiday,
+        :bath_time,
         :prefecture_id ,
         photos_attributes:[:id,:image]
         ).merge(user_id: current_user.id) 

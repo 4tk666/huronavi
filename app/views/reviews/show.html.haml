@@ -1,0 +1,21 @@
+.list
+  .list_contents
+    .list_contents__title
+      = @review.title
+    .list_contents__photo 
+      = image_tag "#{@review.photos[0].image}"
+    .list_contents__address
+      = @review.prefecture.name
+      = @review.address
+    .list_contents__price
+      = @review.price
+      = @review.access
+    .list_contents__time
+      = @review.holiday
+      = @review.bath_time
+    .aaa
+      - if  user_signed_in? && current_user.id == @review.user_id
+        = link_to  review_path ,  method: :delete  do
+          %button 削除
+        = link_to  edit_review_path(@review)  do
+          %button 編集

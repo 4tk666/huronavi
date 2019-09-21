@@ -24,8 +24,11 @@ body{
   &-main{
     height: 100%;
     &__left{
-      background-color: red;
-      width: 300px;
+      background-color:white;
+      width: 800px;
+      height: 300px;
+      padding: 30px;
+      margin: 0 auto ;
     }
   }
 }

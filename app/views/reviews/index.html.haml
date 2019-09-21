@@ -11,8 +11,10 @@
           = link_to "ログイン", new_user_session_path, class: 'signup'
           = link_to "新規登録", new_user_registration_path, class: 'signup'
   .contents-main
-    -# - @review.each do |review|
-    -# .contents-main__left
-    -#   = review.name
-    -# .contents-main__right
+    - @review.each do |review|
+      .contents-main__left
+        = link_to review_path(review) do
+          = review.title
+          = image_tag "#{review.photos[0].image}"
+    .contents-main__right
       

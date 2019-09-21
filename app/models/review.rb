@@ -3,6 +3,7 @@ class Review < ApplicationRecord
   # validates :title,                presence: true
   # validates :photos,               presence: true
   # validates :prefecture_id ,       presence: true
-  has_many :photos
+  has_many :photos, dependent: :destroy
+  belongs_to :prefecture
   accepts_nested_attributes_for :photos
 end
