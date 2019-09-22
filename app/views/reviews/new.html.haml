@@ -5,7 +5,10 @@
     = f.label :text
     = f.text_field :text
     = f.fields_for :photos do |img|
-      = img.file_field :image,type:"file"
+      %label
+        .image
+          = img.file_field :image,type:"file",class:"image_post"
+    = f.label :"都道府県"
     = f.select :prefecture_id ,options_for_select(@prefecture.map{|p|[p.name, p.id]}) , prompt: "---"
     = f.label :address
     = f.text_field :address

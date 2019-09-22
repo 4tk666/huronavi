@@ -13,6 +13,7 @@
     .list_contents__time
       = @review.holiday
       = @review.bath_time
+    = fa_icon "heart" ,id: 'heart-icon',class:'heart-icon'
     .aaa
       - if  user_signed_in? && current_user.id == @review.user_id
         = link_to  review_path ,  method: :delete  do
