@@ -1,0 +1,19 @@
+.registration{
+  height: 100%;
+  &__signup{
+    width:  300px;
+    margin: 0 auto ;
+    background-color: rgb(245, 245, 245);
+    padding:30px;
+    &__title{
+      text-align: center;
+    }
+    .field{
+      text-align: center;
+      padding: 30px
+    }
+    .actions{
+      text-align: center;
+    }
+  }
+}

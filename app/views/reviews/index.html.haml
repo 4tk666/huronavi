@@ -1,24 +1,81 @@
 .contents
   .contents-header
-    .contents-header__title 温泉APP
+    .contents-header__title 
+      = link_to root_path do
+        温泉APP
     .contents-header__registration
       - if user_signed_in?
         .login
           = link_to "ログアウト",destroy_user_session_path, method: :delete,class: 'signup'
           = link_to "投稿する", new_review_path,class: 'signup'
       - else
-        .logout
+        .login
           = link_to "ログイン", new_user_session_path, class: 'signup'
           = link_to "新規登録", new_user_registration_path, class: 'signup'
-  .contents-photo
-    = image_tag "header.jpg",width:"100%",height:"500px"
-  .contents-main
-    .contents-main__text
-      新着投稿
-    .contents-main__list
-      - @review.each do |review|
+.contents-photo
+  = image_tag "header.jpg",width:"100%",height:"500px"
+.contents-main
+  .contents-main__text
+    新着投稿
+  .contents-main__list
+    - @review.each do |review|
+      = link_to review_path(review) ,class:"link"do
         .contents-main__list__review
-          = link_to review_path(review) do
+          .contents-main__list__review__title
             = review.title
-            = image_tag "#{review.photos[0].image}",width:"200px",height:"250px"
-    .contents-main__bottom
+          .contents-main__list__review__image
+          = image_tag "#{review.photos[0].image}",width:"200px",height:"250px"
+  .contents-main__japan
+    .contents-main__japan__title
+      都道府県から探す
+    %ul
+      %li
+        北海道・東北地方
+        = link_to "#" do
+          北海道
+        = link_to "#" do
+          青森県
+        = link_to "#" do
+          岩手県
+        = link_to "#" do
+          秋田県
+        = link_to "#" do
+          宮城県
+        = link_to "#" do
+          山形県
+        = link_to "#" do
+          福島県
+      %li
+        関東地方
+        = link_to "#" do
+          茨城県
+        = link_to "#" do
+          栃木県
+        = link_to "#" do
+          群馬県
+        = link_to "#" do
+          埼玉県
+        = link_to "#" do
+          東京都
+        = link_to "#" do
+          千葉県
+        = link_to "#" do
+          神奈川県
+      %li
+        北陸地方
+        = link_to "#" do
+          新潟県
+        = link_to "#" do
+          栃木県
+        = link_to "#" do
+          群馬県
+        = link_to "#" do
+          埼玉県
+        = link_to "#" do
+          東京都
+        = link_to "#" do
+          千葉県
+        = link_to "#" do
+          神奈川県
+    
+    

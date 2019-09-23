@@ -9,6 +9,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text       :access
       t.text       :holiday
       t.text       :bath_time
+      t.integer    :like
       t.references :user, foreign_key: true
       t.references :prefecture, foreign_key: true
       t.timestamps null: true

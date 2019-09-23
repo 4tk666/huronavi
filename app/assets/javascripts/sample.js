@@ -1,5 +1,5 @@
-// $(function(){
-//   $("#review_title").on("change",function(){
-//     console.log("aaa")
-//   });
-// });
+$(function(){
+  $("#heart-icon").on("click",function(){
+    
+  });
+});

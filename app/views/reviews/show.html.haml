@@ -3,20 +3,39 @@
     .list_contents__title
       = @review.title
     .list_contents__photo 
-      = image_tag "#{@review.photos[0].image}"
-    .list_contents__address
-      = @review.prefecture.name
-      = @review.address
-    .list_contents__price
-      = @review.price
-      = @review.access
-    .list_contents__time
-      = @review.holiday
-      = @review.bath_time
-    = fa_icon "heart" ,id: 'heart-icon',class:'heart-icon'
-    .aaa
-      - if  user_signed_in? && current_user.id == @review.user_id
-        = link_to  review_path ,  method: :delete  do
-          %button 削除
-        = link_to  edit_review_path(@review)  do
-          %button 編集
+      - @review.photos.each do |photo|
+        = image_tag "#{photo.image}",width:"100px",height:"200px"
+    .review
+      .review_1
+        .list_contents__huro
+          %span 住所
+          .huro
+            = @review.prefecture.name
+            = @review.address
+        .list_contents__huro
+          %span 価格
+          .huro
+            = @review.price
+        .list_contents__huro
+          %span アクセス
+          .huro
+            = @review.access
+        .list_contents__huro
+          %span 休館日
+          .huro
+            = @review.holiday
+        .list_contents__huro
+          %span 入浴時間
+          .huro
+            = @review.bath_time
+      .review_2
+        .list_contents__text
+          %span 感想
+        = @review.text
+    = fa_icon "fa-hot-tub" ,id: 'heart-icon',class:'heart-icon'
+  .destory
+    - if  user_signed_in? && current_user.id == @review.user_id
+      = link_to  review_path ,  method: :delete  do
+        %button 削除
+      = link_to  edit_review_path(@review)  do
+        %button 編集

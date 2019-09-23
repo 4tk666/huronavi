@@ -1,0 +1,35 @@
+.list_contents{
+  width:1000px;
+  margin: 0 auto;
+  background-color: #F5F5F5;
+  height: 100%;
+  &__title{
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    font-size:20px;
+    text-decoration: underline;
+  }
+  &__huro{
+    display: flex;
+    padding:10px;
+    span{
+      font-weight: bold;
+    }
+    .huro{
+      text-decoration: underline;
+      margin-left:10px;
+    }
+  }
+  .review{
+    display:flex;
+    &_1{
+      padding:40px;
+      width: 50%;
+    }
+    &_2{
+      padding:40px;
+      width:  50%;
+    }
+  }
+}

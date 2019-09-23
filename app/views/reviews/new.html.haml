@@ -1,23 +1,54 @@
 .review
-  = form_with model: @review, url:reviews_path,local: true do |f|
-    = f.label :title
-    = f.text_field :title
-    = f.label :text
-    = f.text_field :text
-    = f.fields_for :photos do |img|
-      %label
-        .image
-          = img.file_field :image,type:"file",class:"image_post"
-    = f.label :"都道府県"
-    = f.select :prefecture_id ,options_for_select(@prefecture.map{|p|[p.name, p.id]}) , prompt: "---"
-    = f.label :address
-    = f.text_field :address
-    = f.label :price
-    = f.text_field :price
-    = f.label :access
-    = f.text_field :access
-    = f.label :holiday
-    = f.text_field :holiday
-    = f.label :bath_time
-    = f.text_field :bath_time
-    = f.submit  
+  .review-form
+    .review-form__title
+      レビューを投稿する
+    .review-form__post
+      = form_with model: @review, url:reviews_path,local: true do |f|
+        .form-list
+          .form-text タイトル
+          = f.text_field :title,{class:"form-title"}
+        .form-list
+          .form-text 画像の選択(４枚まで)
+          .form-list__photo
+            = f.fields_for :photos do |img|
+              .form-list__photo__image
+                %label
+                  .image
+                    = img.file_field :image,type:"file",name:"review[photos_attributes][0][image]",class:"image_post",id:"file_0"
+                    #image_0
+                %label
+                  .image
+                    = img.file_field :image,type:"file",name:"review[photos_attributes][1][image]",class:"image_post",id:"file_1"
+                    #image_1
+              .form-list__photo__image
+                %label
+                  .image
+                    = img.file_field :image,type:"file",name:"review[photos_attributes][2][image]",class:"image_post",id:"file_2"
+                    #image_2
+                %label
+                  .image
+                    = img.file_field :image,type:"file",name:"review[photos_attributes][3][image]",class:"image_post",id:"file_3"
+                    #image_3
+        .form-list
+          .form-text 感想
+          = f.text_field :text,{class:"form-title"}
+        .form-list
+          .form-text 都道府県
+          = f.select :prefecture_id ,options_for_select(@prefecture.map{|p|[p.name, p.id]}) , prompt: "---"
+        .form-list
+          .form-text アクセス方法
+          = f.text_field :address,{class:"form-title"}
+        .form-list
+          .form-text 価格
+          = f.text_field :price,{class:"form-title"}
+        .form-list
+          .form-text アクセス方法
+          = f.text_field :access,{class:"form-title"}
+        .form-list
+          .form-text 休館日
+          = f.text_field :holiday,{class:"form-title"}
+        .form-list
+          .form-text 入浴時間
+          = f.text_field :bath_time,{class:"form-title"}
+        .form-button
+          = f.submit "投稿する",class:"button"
