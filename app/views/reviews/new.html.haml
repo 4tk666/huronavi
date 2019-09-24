@@ -3,7 +3,7 @@
     .review-form__title
       レビューを投稿する
     .review-form__post
-      = form_with model: @review, url:reviews_path,local: true do |f|
+      = form_with model: @review, url:reviews_path do |f|
         .form-list
           .form-text タイトル
           = f.text_field :title,{class:"form-title"}
@@ -52,3 +52,4 @@
           = f.text_field :bath_time,{class:"form-title"}
         .form-button
           = f.submit "投稿する",class:"button"
+= render "footer"

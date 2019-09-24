@@ -1,4 +1,6 @@
-
+body{
+  background-color: #EEF9FF;
+}
 .contents{
   margin: 0;
   padding: 0;
@@ -6,7 +8,7 @@
       padding-top: 80px;
   }
   &-header{
-    background-color: rgb(245, 245, 245);
+    background-color:#AAD6EC;
     height: 80px;
     position: fixed;
     width: 100%;
@@ -27,29 +29,60 @@
   &-main{
     height: 100%;
     width: 100%;
+    padding-top:80px;
     &__text{
       text-align: center;
       font-size:30px;
+      padding-top:20px;
     }
     &__list{
       display: flex;
+      &__new{
+        display: flex;
+        widows: 300px;
+        margin: 0 auto;
         &__review{
-          background-color: rgb(245, 245, 245);
-          width: 220px;
-          padding: 50px;
-          margin:20px;
+          background-color:white;
+          width: 250px;
+          height: 100%;
+          margin: 20px;
           &__title{
             text-align: center;
             font-size: 20px;
+            font-weight: bold;
             margin-bottom: 10px;
+            height: 40px;
+            line-height: 40px;
             color: black;
+            border-bottom: 1px solid rgb(245, 245, 245);
+          }
+          &__image{
+            text-align: center;
+            border-bottom: 1px solid rgb(245, 245, 245);
+            img{
+              margin: 10px 0 10px 0;
+            }
+          }
+          &__rate{
+            text-align: center;
+            margin-top:30px;
           }
         }
+      }
     }
     &__japan{
       height: 400px;
       width: 550px;
       background-color:rgb(245, 245, 245);
+    }
+  }
+  &-footer{
+    text-align: center;
+    height: 100%;
+    line-height: 250px;
+    .bath-icon{
+    font-size:50px;
+    color: black;
     }
   }
 }

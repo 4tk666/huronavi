@@ -32,10 +32,14 @@
         .list_contents__text
           %span 感想
         = @review.text
-    = fa_icon "fa-hot-tub" ,id: 'heart-icon',class:'heart-icon'
   .destory
     - if  user_signed_in? && current_user.id == @review.user_id
       = link_to  review_path ,  method: :delete  do
         %button 削除
       = link_to  edit_review_path(@review)  do
         %button 編集
+  .comments
+    = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true do |f|
+      = f.text_field :text
+      = f.submit
+= render "footer" 
