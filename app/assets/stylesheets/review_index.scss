@@ -10,7 +10,6 @@ body{
   &-header{
     background-color:#AAD6EC;
     height: 80px;
-    position: fixed;
     width: 100%;
     &__title{
       float: left;
@@ -29,7 +28,6 @@ body{
   &-main{
     height: 100%;
     width: 100%;
-    padding-top:80px;
     &__text{
       text-align: center;
       font-size:30px;

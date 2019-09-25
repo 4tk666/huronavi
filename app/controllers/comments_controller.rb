@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
   def create 
     @comment = Comment.new(comment_parmas) 
-    binding.pry
     @comment.save
     redirect_to root_path
   end

@@ -3,8 +3,11 @@
     .list_contents__title
       = @review.title
     .list_contents__photo 
-      - @review.photos.each do |photo|
-        = image_tag "#{photo.image}",width:"100px",height:"200px"
+      .list_contents__photo__main
+        = image_tag "#{@review.photos[0].image}",width:"500px",height:"400px"
+      .list_contents__photo__sub
+        - @review.photos.each do |photo|
+          = image_tag "#{photo.image}",width:"50px",height:"50px",class:"image-list"
     .review
       .review_1
         .list_contents__huro
@@ -32,14 +35,24 @@
         .list_contents__text
           %span 感想
         = @review.text
-  .destory
-    - if  user_signed_in? && current_user.id == @review.user_id
-      = link_to  review_path ,  method: :delete  do
-        %button 削除
-      = link_to  edit_review_path(@review)  do
-        %button 編集
-  .comments
-    = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true do |f|
-      = f.text_field :text
-      = f.submit
-= render "footer" 
+  .comment
+    .comments
+      .comments-huro
+        - @comments.each do |comment|
+          .comments-huro__list
+            .comment-user
+              = image_tag "#{comment.user.icon}",width:"40px",height:"40px",class:"user-icon"
+              .comment-nickname
+              = comment.user.nickname
+            .comment-text
+              .comment-text__box
+                = comment.text
+      = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true  do |f|
+        = f.text_field :text, {class:"comment-form"}
+        = f.submit "投稿する",{class:"comment-btn"}
+      .destory
+        - if  user_signed_in? && current_user.id == @review.user_id
+          = link_to  review_path ,  method: :delete  do
+            %button 削除
+          = link_to  edit_review_path(@review)  do
+            %button 編集

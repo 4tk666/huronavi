@@ -8,4 +8,19 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    .contents
+      .contents-header
+        .contents-header__title 
+          = link_to root_path do
+            温泉APP
+        .contents-header__registration
+          - if user_signed_in?
+            .login
+              = link_to "ログアウト",destroy_user_session_path, method: :delete,class: 'signup'
+              = link_to "投稿する", new_review_path,class: 'signup'
+          - else
+            .login
+              = link_to "ログイン", new_user_session_path, class: 'signup'
+              = link_to "新規登録", new_user_registration_path, class: 'signup'
     = yield
+    = render "reviews/footer"

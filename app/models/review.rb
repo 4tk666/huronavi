@@ -5,7 +5,7 @@ class Review < ApplicationRecord
   # validates :prefecture_id ,       presence: true
   has_many :likes, dependent: :destroy
   has_many :photos, dependent: :destroy
-  has_many :comments
+  has_many :comments,dependent: :destroy
   belongs_to :prefecture
   accepts_nested_attributes_for :photos
 end

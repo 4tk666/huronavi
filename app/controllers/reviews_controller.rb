@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  before_action :review_find_id ,only: [:show,:edit,:update,:destroy]
   def index
   @review = Review.all.limit(4).order(id: "DESC")
   end
@@ -20,20 +20,18 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
     @comment = Comment.new
+    @comments = @review.comments.includes(:user)
+    @user = User.all
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
   end
 
   def destroy
-    @review = Review.find(params[:id])
     @review.destroy
     redirect_to root_path
   end
@@ -51,6 +49,10 @@ class ReviewsController < ApplicationController
         :prefecture_id ,
         photos_attributes:[:id,:image]
         ).merge(user_id: current_user.id) 
+    end
+
+    def review_find_id
+      @review = Review.find(params[:id])
     end
 
 end
