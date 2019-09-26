@@ -5,11 +5,27 @@
   height: 100%;
   margin-top:90px;
   &__title{
-    text-align: center;
     height: 70px;
     line-height: 70px;
-    font-size:20px;
-    text-decoration: underline;
+    text-align: center;
+    p{
+      position: relative;
+      display: inline-block;
+      padding: 0 55px;
+      font-size: 20px;
+    }
+    p:before, p:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      display: inline-block;
+      width: 45px;
+      height: 1px;
+      background-color: black;
+    }
+    p:before {left:0;}
+    p:after {right: 0;}
+
   }
   &__photo{
     margin-top:20px;
@@ -27,7 +43,10 @@
   &__huro{
     display: flex;
     padding:10px;
-    span{
+    background-color: #f5f5f5;
+    margin-top: 10px;
+    .onsenn{
+      width: 60px;
       font-weight: bold;
     }
     .huro{
@@ -58,23 +77,27 @@
     height: 100%;
     width: 600px;
     &-huro{
-      background-color: #DFEFED;
+      background-color: #f5f5f5;
       width: 100%;
       &__list{
         display: flex;
         padding:10px;
         .comment-user{
           margin-right: 20px;
+          .comment-nickname{
+            white-space: nowrap;
+          }
           .user-icon{
             border-radius: 50%
+            
           }
         }
         .comment-text {
           position: relative;
           padding: 20px;
-          background-color: #f5f5f5;
+          background-color: white;
           border-radius: 10px;  
-          width:100%;     
+          width:100%;    
         }
 
         .comment-text:before {
@@ -84,8 +107,8 @@
           width: 0;
           height: 0;
           left: -15px;
-          top: 20px;
-          border-right: 15px solid #f5f5f5;
+          top: 10px;
+          border-right: 15px solid white;
           border-top: 15px solid transparent;
           border-bottom: 15px solid transparent;
         }
@@ -93,6 +116,9 @@
         .comment-text__box{
           margin: 0;
           padding: 0;
+          p{
+            word-break: break-all;
+          }
         }
       }
     }

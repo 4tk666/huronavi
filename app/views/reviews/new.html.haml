@@ -50,5 +50,9 @@
         .form-list
           .form-text 入浴時間
           = f.text_field :bath_time,{class:"form-title"}
+        .form-rate
+          #star
+            .form-text 評価
+            = f.hidden_field :rate, id: :review_star
         .form-button
           = f.submit "投稿する",class:"button"

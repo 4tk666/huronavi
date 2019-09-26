@@ -47,6 +47,7 @@ class ReviewsController < ApplicationController
         :holiday,
         :bath_time,
         :prefecture_id ,
+        :rate,
         photos_attributes:[:id,:image]
         ).merge(user_id: current_user.id) 
     end

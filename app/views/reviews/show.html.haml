@@ -1,7 +1,8 @@
 .list
   .list_contents
     .list_contents__title
-      = @review.title
+      %p
+        = @review.title
     .list_contents__photo 
       .list_contents__photo__main
         = image_tag "#{@review.photos[0].image}",width:"500px",height:"400px"
@@ -11,24 +12,29 @@
     .review
       .review_1
         .list_contents__huro
-          %span 住所
+          .onsenn
+            住所
           .huro
             = @review.prefecture.name
             = @review.address
         .list_contents__huro
-          %span 価格
+          .onsenn
+            価格
           .huro
             = @review.price
         .list_contents__huro
-          %span アクセス
+          .onsenn
+            アクセス
           .huro
             = @review.access
         .list_contents__huro
-          %span 休館日
+          .onsenn
+            休館日
           .huro
             = @review.holiday
         .list_contents__huro
-          %span 入浴時間
+          .onsenn
+            入浴時間
           .huro
             = @review.bath_time
       .review_2
@@ -43,13 +49,14 @@
             .comment-user
               = image_tag "#{comment.user.icon}",width:"40px",height:"40px",class:"user-icon"
               .comment-nickname
-              = comment.user.nickname
+                = comment.user.nickname
             .comment-text
               .comment-text__box
-                = comment.text
+                %p 
+                  = comment.text
       = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true  do |f|
         = f.text_field :text, {class:"comment-form"}
-        = f.submit "投稿する",{class:"comment-btn"}
+        = f.submit "コメントする",{class:"comment-btn"}
       .destory
         - if  user_signed_in? && current_user.id == @review.user_id
           = link_to  review_path ,  method: :delete  do
