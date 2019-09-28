@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @review.comments.includes(:user)
-    @user = User.all
+    @user = User.find_by(id: @review.user_id)
   end
 
   def edit

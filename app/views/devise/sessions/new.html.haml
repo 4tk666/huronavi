@@ -4,18 +4,17 @@
       %h2 ログイン
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email"
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス",class:"user-list"
+          = fa_icon "envelope",class:"user-icon"
         .field
-          = f.label :password
-          %br/
-          = f.password_field :password, autocomplete: "current-password"
+          = f.password_field :password, autocomplete: "current-password",placeholder: "パスワード",class:"user-list"
+          = fa_icon "key",class:"user-icon"
         -# - if devise_mapping.rememberable?
         -#   .field
         -#     = f.check_box :remember_me
         -#     = f.label :remember_me
         .actions
-          = f.submit "ログイン"
-      = render "devise/shared/links"
-= render "/reviews/footer"
+          = f.submit "ログイン",class:"button"
+  .registration__path
+    %h3 アカウントをお持ちでないですか？
+    = link_to "新規登録" ,  new_user_registration_path ,class:"path"

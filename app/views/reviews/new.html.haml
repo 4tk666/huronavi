@@ -6,7 +6,7 @@
       = form_with model: @review, url:reviews_path do |f|
         .form-list
           .form-text タイトル
-          = f.text_field :title,{class:"form-title"}
+          = f.text_field :title,placeholder: "タイトル",class:"form-title"
         .form-list
           .form-text 画像の選択(４枚まで)
           .form-list__photo

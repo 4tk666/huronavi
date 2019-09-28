@@ -2,6 +2,7 @@
   .list_contents
     .list_contents__title
       %p
+        タイトル:
         = @review.title
     .list_contents__photo 
       .list_contents__photo__main
@@ -39,27 +40,34 @@
             = @review.bath_time
       .review_2
         .list_contents__text
-          %span 感想
-        = @review.text
-  .comment
-    .comments
-      .comments-huro
-        - @comments.each do |comment|
-          .comments-huro__list
-            .comment-user
-              = image_tag "#{comment.user.icon}",width:"40px",height:"40px",class:"user-icon"
-              .comment-nickname
-                = comment.user.nickname
-            .comment-text
-              .comment-text__box
-                %p 
-                  = comment.text
-      = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true  do |f|
-        = f.text_field :text, {class:"comment-form"}
+          .list_contents__text__user
+            = image_tag "#{@user.icon}",width:"50px",height:"50px",class:"user-icon"
+            %p
+              ユーザー名:
+              = @user.nickname
+          .list_contents__text__text
+            %p
+              = @review.text
+  .comments
+    .comments-huro
+      - @comments.each do |comment|
+        .comments-huro__list
+          .comment-user
+            = image_tag "#{comment.user.icon}",width:"40px",height:"40px",class:"user-icon"
+            .comment-nickname
+              = comment.user.nickname
+          .comment-text
+            .comment-text__box
+              %p 
+                = comment.text
+    = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true  do |f|
+      = f.text_field :text, {class:"comment-form"}
+      .submit-btn
         = f.submit "コメントする",{class:"comment-btn"}
-      .destory
-        - if  user_signed_in? && current_user.id == @review.user_id
-          = link_to  review_path ,  method: :delete  do
-            %button 削除
-          = link_to  edit_review_path(@review)  do
-            %button 編集
+  .destory
+    - if  user_signed_in? && current_user.id == @review.user_id
+      = link_to  review_path ,  method: :delete  do
+        %button 削除
+      = link_to  edit_review_path(@review)  do
+        %button 編集
+  .aaaa
