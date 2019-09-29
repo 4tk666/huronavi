@@ -81,4 +81,4 @@ gem 'ancestry'
 gem 'active_hash'
 gem "jquery-rails"
 gem 'font-awesome-rails'
-gem 'fog-aws'
+gem 'fog'
