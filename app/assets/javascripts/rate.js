@@ -5,7 +5,7 @@ $(function(){
     starOn : '/assets/star-on.png',
     starHalf: '/assets/star-half.png',
     half: true,
-    scoreName: 'review[rate]' 
+    scoreName: 'review[rate]' ,
   });
   // var e = document.getElementById('rate');
   // var score = e.getAttribute('data-review-rate');
