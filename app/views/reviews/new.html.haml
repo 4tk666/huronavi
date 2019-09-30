@@ -8,7 +8,7 @@
           .form-text タイトル
           = f.text_field :title,placeholder: "タイトル",class:"form-title"
         .form-list
-          .form-text 画像の選択(４枚まで)
+          .form-text 画像の選択
           .form-list__photo
             = f.fields_for :photos do |img|
               .form-list__photo__image
@@ -20,15 +20,23 @@
                   .image
                     = img.file_field :image,type:"file",name:"review[photos_attributes][1][image]",class:"image_post",id:"file_1"
                     #image_1
-              .form-list__photo__image
                 %label
                   .image
                     = img.file_field :image,type:"file",name:"review[photos_attributes][2][image]",class:"image_post",id:"file_2"
                     #image_2
+              .form-list__photo__image
                 %label
                   .image
                     = img.file_field :image,type:"file",name:"review[photos_attributes][3][image]",class:"image_post",id:"file_3"
                     #image_3
+                %label
+                  .image
+                    = img.file_field :image,type:"file",name:"review[photos_attributes][4][image]",class:"image_post",id:"file_4"
+                    #image_4
+                %label
+                  .image
+                    = img.file_field :image,type:"file",name:"review[photos_attributes][5][image]",class:"image_post",id:"file_5"
+                    #image_5
         .form-list
           .form-text 感想
           = f.text_field :text,{class:"form-title"}
