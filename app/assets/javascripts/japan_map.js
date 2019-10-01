@@ -9,9 +9,9 @@ $(function(){
     7:"javascript:void(0)",
     8:"javascript:void(0)",
     9:"javascript:void(0)"
-	};
+  };
   var areas = [
-    {code : 1, name: "北海道", color: "#759ef4", hoverColor: "#b3b2ee", prefectures: [1]},
+    {code : 1, name: "北海道", color: "#7f7eda", hoverColor: "#b3b2ee", prefectures: [1]},
     {code : 2, name: "青森", color: "#759ef4", hoverColor: "#98b9ff", prefectures: [2]},
     {code : 3, name: "岩手", color: "#759ef4", hoverColor: "#98b9ff", prefectures: [3]},
     {code : 4, name: "宮城", color: "#759ef4", hoverColor: "#98b9ff", prefectures: [4]},
@@ -31,10 +31,10 @@ $(function(){
     {code : 18, name: "福井",   color: "#7cdc92", hoverColor: "#aceebb", prefectures: [18]},
     {code : 19, name: "山梨",   color: "#7cdc92", hoverColor: "#aceebb", prefectures: [19]},
     {code : 20, name: "長野",   color: "#7cdc92", hoverColor: "#aceebb", prefectures: [20]},
-    {code : 21, name: "岐阜",   color: "#CC3333", hoverColor: "#aceebb", prefectures: [21]},
-    {code : 22, name: "静岡",   color: "#CC3333", hoverColor: "#aceebb", prefectures: [22]},
-    {code : 23, name: "愛知",   color: "#CC3333", hoverColor: "#aceebb", prefectures: [23]},
-    {code : 24, name: "三重",   color: "#CC3333", hoverColor: "#fff19c", prefectures: [24]},
+    {code : 21, name: "岐阜",   color: "#7cdc92", hoverColor: "#aceebb", prefectures: [21]},
+    {code : 22, name: "静岡",   color: "#7cdc92", hoverColor: "#aceebb", prefectures: [22]},
+    {code : 23, name: "愛知",   color: "#7cdc92", hoverColor: "#aceebb", prefectures: [23]},
+    {code : 24, name: "三重",   color: "#ffe966", hoverColor: "#fff19c", prefectures: [24]},
     {code : 25, name: "滋賀",   color: "#ffe966", hoverColor: "#fff19c", prefectures: [25]},
     {code : 26, name: "京都",   color: "#ffe966", hoverColor: "#fff19c", prefectures: [26]},
     {code : 27, name: "大阪",   color: "#ffe966", hoverColor: "#fff19c", prefectures: [27]},
@@ -57,27 +57,27 @@ $(function(){
     {code : 44, name: "大分",   color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [44]},
     {code : 45, name: "宮崎",   color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [45]},
     {code : 46, name: "鹿児島",   color: "#ff9999", hoverColor: "#ffbdbd", prefectures: [46]},
-    {code : 47, name: "沖縄",   color: "#ff9999", hoverColor: "#f5c9ff", prefectures: [47]},
+    {code : 47, name: "沖縄",   color: "#eb98ff", hoverColor: "#f5c9ff", prefectures: [47]},
   ];
 
-  $("#map-container").japanMap({
-      width: 850,
-      selection: "area",
-      areas: areas,
-      backgroundColor : "#dcdcdc",
-      borderLineColor: "#f2fcff",
-      borderLineWidth : 0.25,
-      lineColor : "#a0a0a0",
-      lineWidth: 1,
-      drawsBoxLine: true,
-      showsPrefectureName: true,
-      prefectureNameType: "short",
-      movesIslands : true,
-      fontSize : 11,
-      fontShadowColor : "#fff",
-      onSelect : function(data){
-        alert(data.name);
-        location.href = areaLinks[data.area.code];
-      }
-  });
+    $("#map-container").japanMap({
+        width: 1100,
+        selection: "area",
+        areas: areas,
+        backgroundColor : "white",
+        borderLineColor: "#f2fcff",
+        borderLineWidth : 0.25,
+        lineColor : "#a0a0a0",
+        lineWidth: 1,
+        drawsBoxLine: false,
+        showsPrefectureName: true,
+        prefectureNameType: "short",
+        movesIslands : false,
+        fontSize : 11,
+        fontShadowColor : "#fff",
+        onSelect : function(data){
+            location.href = areaLinks[data.area.code];
+        }
+    });
+
 });
