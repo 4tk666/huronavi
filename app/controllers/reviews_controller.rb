@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :review_find_id ,only: [:show,:edit,:update,:destroy]
   def index
-  @review = Review.all.limit(4).order(id: "DESC")
+  @review = Review.all.limit(9).order(id: "DESC")
   end
 
   def new

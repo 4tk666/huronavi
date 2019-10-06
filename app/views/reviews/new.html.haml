@@ -1,3 +1,6 @@
+.review-header
+  = link_to root_path do
+    = image_tag "https://i.gyazo.com/554fe2ee0c2ae70d9c1ac4e0984de66c.png" ,width:"400px" ,height:"200px"
 .review
   .review-form
     .review-form__title
@@ -64,3 +67,4 @@
             = f.hidden_field :rate, id: :review_star
         .form-button
           = f.submit "投稿する",class:"button"
+= render "reviews/footer"
