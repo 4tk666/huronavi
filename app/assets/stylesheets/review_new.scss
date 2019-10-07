@@ -1,34 +1,34 @@
-.image_post{
-  display: none;
-}
+// .image_post{
+//   display: none;
+// }
 
-.image{
-  padding: 20px;
-  width: 200px;
-  height: 100px;
-  margin: 10px;
-  background-color: #F5F5F5;
-  border: dashed 1px #ccc;
-  position: relative;
-}
-.form-list__photo__image{
-  display: flex;
-}
+// .image{
+//   padding: 20px;
+//   width: 200px;
+//   height: 100px;
+//   margin: 10px;
+//   background-color: #F5F5F5;
+//   border: dashed 1px #ccc;
+//   position: relative;
+// }
+// .form-list__photo__image{
+//   display: flex;
+// }
 
 
-#photo_0,
-#photo_1,
-#photo_2,
-#photo_3{
-  position: absolute;
-  height: 142px;
-  width: 242px;
-  right: 0;
-  top: 0;
-}
-.review-header{
-  text-align: center;
-}
+// #photo_0,
+// #photo_1,
+// #photo_2,
+// #photo_3{
+//   position: absolute;
+//   height: 142px;
+//   width: 242px;
+//   right: 0;
+//   top: 0;
+// }
+// .review-header{
+//   text-align: center;
+// }
 
 // .review{
 //   &-form{
@@ -81,27 +81,70 @@
 //   }
 // }
 
+// .review-form{
+//   margin: 0 auto;
+//   height: 100%;
+//   width: 1000px;
+//   margin-top:100px;
+//   background-color: #f0f8ff;
+//   &__title{
+//     height: 80px;
+//     text-align: center;
+//     line-height: 80px;
+//     font-size: 30px;
+//     font-weight:bold;
+//   }
+//   &__post{
+//     height: 100%;
+//     border-top: 1px solid #f5f5f5;
+//     .form-list{
+//       display: flex;
+//       &__photo{
+//         margin: 0 auto;
+//       }
+//     }
+//   }
+// }
+
 .review-form{
-  margin: 0 auto;
+  width: 750px;
   height: 100%;
-  width: 1000px;
-  margin-top:100px;
-  background-color: #f0f8ff;
+  margin: 0 auto;
   &__title{
-    height: 80px;
     text-align: center;
-    line-height: 80px;
-    font-size: 30px;
-    font-weight:bold;
+    padding: 30px 0 ;
+    border-bottom: solid 1px black;
   }
   &__post{
-    height: 100%;
-    border-top: 1px solid #f5f5f5;
+    padding-top: 40px;
     .form-list{
-      display: flex;
-      &__photo{
-        margin: 0 auto;
+      padding: 40px ;
+      flex-direction: column;
+      .form-label{
+        margin-bottom: 8px;
+        label{
+          font-size:18px;
+          .form-require {
+            color: red;
+            margin-left: 5px;
+          }
+          span{
+            margin-left: 5px;
+          }
+        }
+      }
+      .form-title{
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: 100%;
+        margin: 8px 0 0;
       }
     }
   }
 }
+

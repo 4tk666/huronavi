@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_102905) do
+ActiveRecord::Schema.define(version: 2019_10_06_052133) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "name", null: false
+    t.bigint "review_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["review_id"], name: "index_categories_on_review_id"
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
@@ -79,6 +87,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_102905) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "reviews"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "reviews"

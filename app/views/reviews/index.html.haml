@@ -7,7 +7,7 @@
         .login
           - if user_signed_in?
             .login-tomo
-              = link_to "マイページ",destroy_user_session_path, method: :delete,class: 'signup'
+              = link_to "マイページ",user_path(current_user), class: 'signup'
           - else
             .login-tomo
               = link_to "ログイン", new_user_session_path, class: 'signup'
@@ -24,75 +24,141 @@
   .contents-main__list
     .contents-main__list__new
       - @review.each do |review|
-        = link_to review_path(review) ,class:"link" do
-          .contents-main__list__image
-            = image_tag "#{review.photos[0].image}",width:"100%",height:"290px",class:"review-image"
-            %p.aaa
+        .contents-main__list__new__image
+          = image_tag "#{review.photos[0].image}",width:"90%",height:"260px",class:"review-image"
+          .contents-main__list__new__image__name
+            %p.review-title
               = review.title
-  -#   .contents-main__list__new
-      -# - @review.each do |review|
-  -#       = link_to review_path(review) ,class:"link"do
-  -#         .contents-main__list__new__review
-  -#           .contents-main__list__new__review__title
-  -#             = review.title
-  -#           .contents-main__list__new__review__image
-  -#             = image_tag "#{review.photos[0].image}",width:"200px",height:"250px"
-  -#           .contents-main__list__new__review__rate
-  -#             #rate{"data-review-rate" => "#{review.rate}"}
--# .japan-map
--#   都道府県から探す
--# #map-container
-  -# .contents-main__japan
-  -#   .contents-main__japan__title
-  -#     都道府県から探す
-  -#   %ul
-  -#     %li
-  -#       北海道・東北地方
-  -#       = link_to "#" do
-  -#         北海道
-  -#       = link_to "#" do
-  -#         青森県
-  -#       = link_to "#" do
-  -#         岩手県
-  -#       = link_to "#" do
-  -#         秋田県
-  -#       = link_to "#" do
-  -#         宮城県
-  -#       = link_to "#" do
-  -#         山形県
-  -#       = link_to "#" do
-  -#         福島県
-  -#     %li
-  -#       関東地方
-  -#       = link_to "#" do
-  -#         茨城県
-  -#       = link_to "#" do
-  -#         栃木県
-  -#       = link_to "#" do
-  -#         群馬県
-  -#       = link_to "#" do
-  -#         埼玉県
-  -#       = link_to "#" do
-  -#         東京都
-  -#       = link_to "#" do
-  -#         千葉県
-  -#       = link_to "#" do
-  -#         神奈川県
-  -#     %li
-  -#       北陸地方
-  -#       = link_to "#" do
-  -#         新潟県
-  -#       = link_to "#" do
-  -#         栃木県
-  -#       = link_to "#" do
-  -#         群馬県
-  -#       = link_to "#" do
-  -#         埼玉県
-  -#       = link_to "#" do
-  -#         東京都
-  -#       = link_to "#" do
-  -#         千葉県
-  -#       = link_to "#" do
-  -#         神奈川県
-    
-    
+            .review-link
+              = link_to review_path(review) ,class:"link" do
+                = fa_icon "arrow-circle-right",class:"arrow"
+                .detalis 詳細を見る
+  .contents-main__prefecture
+    .contents-main__prefecture__list
+      都道府県から探す
+    .japan
+      .region
+        %span 北海道・東北地方
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 2) do
+          北海道
+        = link_to prefecture_reviews_path(prefecture_id: 3) do
+          青森県
+        = link_to prefecture_reviews_path(prefecture_id: 4) do
+          岩手県
+        = link_to prefecture_reviews_path(prefecture_id: 5) do
+          秋田県
+        = link_to prefecture_reviews_path(prefecture_id: 6) do
+          宮城県
+        = link_to prefecture_reviews_path(prefecture_id: 7) do
+          山形県
+        = link_to prefecture_reviews_path(prefecture_id: 8) do
+          福島県
+    .japan
+      .region
+        %span 関東地方
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 10) do
+          茨城県
+        = link_to prefecture_reviews_path(prefecture_id: 11) do
+          栃木県
+        = link_to prefecture_reviews_path(prefecture_id: 12) do
+          群馬県
+        = link_to prefecture_reviews_path(prefecture_id: 13) do
+          埼玉県
+        = link_to prefecture_reviews_path(prefecture_id: 14) do
+          千葉県
+        = link_to prefecture_reviews_path(prefecture_id: 15) do
+          東京都
+        = link_to prefecture_reviews_path(prefecture_id: 16) do
+          神奈川県
+    .japan
+      .region
+        %span 北陸地方
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 18) do
+          新潟県
+        = link_to prefecture_reviews_path(prefecture_id: 19) do
+          長野県
+        = link_to prefecture_reviews_path(prefecture_id: 20) do
+          山梨県
+        = link_to prefecture_reviews_path(prefecture_id: 21) do
+          富山県
+        = link_to prefecture_reviews_path(prefecture_id: 22) do
+          石川県
+        = link_to prefecture_reviews_path(prefecture_id: 23) do
+          福井県
+    .japan
+      .region
+        %span 東海地方 
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 25) do
+          静岡県
+        = link_to prefecture_reviews_path(prefecture_id: 26) do
+          愛知県
+        = link_to prefecture_reviews_path(prefecture_id: 27) do
+          岐阜県
+        = link_to prefecture_reviews_path(prefecture_id: 28) do
+          三重県
+    .japan
+      .region
+        %span 近畿地方
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 30) do
+          大阪府
+        = link_to prefecture_reviews_path(prefecture_id: 31) do
+          京都府
+        = link_to prefecture_reviews_path(prefecture_id: 32) do
+          滋賀県
+        = link_to prefecture_reviews_path(prefecture_id: 33) do
+          兵庫県
+        = link_to prefecture_reviews_path(prefecture_id: 34) do
+          奈良県
+        = link_to prefecture_reviews_path(prefecture_id: 35) do
+          和歌山県
+    .japan
+      .region
+        %span 中国地方
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 37) do
+          鳥取県
+        = link_to prefecture_reviews_path(prefecture_id: 38) do
+          島根県
+        = link_to prefecture_reviews_path(prefecture_id: 39) do
+          岡山県
+        = link_to prefecture_reviews_path(prefecture_id: 40) do
+          広島県
+        = link_to prefecture_reviews_path(prefecture_id: 41) do
+          山口県
+    .japan 
+      .region
+        %span 四国地方
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 43) do
+          香川県
+        = link_to prefecture_reviews_path(prefecture_id: 44) do
+          徳島県
+        = link_to prefecture_reviews_path(prefecture_id: 45) do
+          愛媛県
+        = link_to prefecture_reviews_path(prefecture_id: 46) do
+          高知県
+    .japan
+      .region
+        %span 九州地方・沖縄県
+      .list
+        = link_to prefecture_reviews_path(prefecture_id: 48) do
+          福岡県
+        = link_to prefecture_reviews_path(prefecture_id: 49) do
+          佐賀県
+        = link_to prefecture_reviews_path(prefecture_id: 50) do
+          長崎県
+        = link_to prefecture_reviews_path(prefecture_id: 51) do
+          大分県
+        = link_to prefecture_reviews_path(prefecture_id: 52) do
+          熊本県
+        = link_to prefecture_reviews_path(prefecture_id: 53) do
+          宮崎県
+        = link_to prefecture_reviews_path(prefecture_id: 54) do
+          鹿児島県
+        = link_to prefecture_reviews_path(prefecture_id: 55) do
+          沖縄県

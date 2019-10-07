@@ -2,11 +2,13 @@ class ReviewsController < ApplicationController
   before_action :review_find_id ,only: [:show,:edit,:update,:destroy]
   def index
   @review = Review.all.limit(9).order(id: "DESC")
+  # @user = User.find(params[:id])
   end
 
   def new
     @review = Review.new
     @review.photos.build
+    @review.categories.build
     @prefecture  = Prefecture.where.not(ancestry: nil)
   end
 
@@ -36,6 +38,11 @@ class ReviewsController < ApplicationController
     redirect_to root_path
   end
 
+  def prefecture
+    @prefecture = Prefecture.find(params[:prefecture_id])
+    @reviews = @prefecture.reviews.order(created_at: :desc).all
+  end
+
   private
     def review_params
       params.require(:review).permit(
@@ -48,7 +55,8 @@ class ReviewsController < ApplicationController
         :bath_time,
         :prefecture_id ,
         :rate,
-        photos_attributes:[:id,:image]
+        photos_attributes:[:id,:image],
+        categories_attributes:[:id, name:[]]
         ).merge(user_id: current_user.id) 
     end
 

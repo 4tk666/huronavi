@@ -1,6 +1,6 @@
-.review-header
-  = link_to root_path do
-    = image_tag "https://i.gyazo.com/554fe2ee0c2ae70d9c1ac4e0984de66c.png" ,width:"400px" ,height:"200px"
+-# .review-header
+-#   = link_to root_path do
+-#     = image_tag "https://i.gyazo.com/554fe2ee0c2ae70d9c1ac4e0984de66c.png" ,width:"400px" ,height:"200px"
 .review
   .review-form
     .review-form__title
@@ -8,10 +8,7 @@
     .review-form__post
       = form_with model: @review, url:reviews_path do |f|
         .form-list
-          .form-text タイトル
-          = f.text_field :title,placeholder: "タイトル",class:"form-title"
-        .form-list
-          .form-text 画像の選択
+          %label 画像の選択
           .form-list__photo
             = f.fields_for :photos do |img|
               .form-list__photo__image
@@ -41,30 +38,86 @@
                     = img.file_field :image,type:"file",name:"review[photos_attributes][5][image]",class:"image_post",id:"file_5"
                     #image_5
         .form-list
-          .form-text 感想
-          = f.text_field :text,{class:"form-title"}
+          .form-label
+            %label 
+              タイトル
+              %span.form-require 
+                必須
+          = f.text_field :title,placeholder: "タイトル",class:"form-title"
         .form-list
-          .form-text 都道府県
+          .form-label
+            %label 
+              感想
+              %span.form-require 
+                必須
+          = f.text_area :text,{class:"form-title"}
+        .form-list
+          .form-label
+            %label 
+              住所
+              %span.form-require 
+                必須
           = f.select :prefecture_id ,options_for_select(@prefecture.map{|p|[p.name, p.id]}) , prompt: "---"
         .form-list
-          .form-text アクセス方法
+          .form-label
+            %label 
+              住所
+              %span.form-require 
+                必須
           = f.text_field :address,{class:"form-title"}
         .form-list
-          .form-text 価格
+          .form-label
+            %label 
+              価格
+              %span 
+                任意
           = f.text_field :price,{class:"form-title"}
         .form-list
-          .form-text アクセス方法
+          .form-label
+            %label 
+              アクセス方法
+              %span
+                任意
           = f.text_field :access,{class:"form-title"}
         .form-list
-          .form-text 休館日
+          .form-label
+            %label 
+              休館日
+              %span
+                任意
           = f.text_field :holiday,{class:"form-title"}
         .form-list
-          .form-text 入浴時間
+          .form-label
+            %label 
+              入浴時間
+              %span
+                任意
           = f.text_field :bath_time,{class:"form-title"}
-        .form-rate
+        .form-list
+          = f.fields_for :categories do |category|
+            = category.check_box :name, {multiple: true}, '露天風呂',nil
+            %label 露天風呂
+            %br/
+            = category.check_box :name, {multiple: true}, '天然温泉',nil
+            %label 天然温泉
+            %br/
+            = category.check_box :name, {multiple: true}, '貸切',nil
+            %label 貸切
+            %br/
+            = category.check_box :name, {multiple: true}, '大浴場',nil
+            %label 大浴場
+            %br/
+            = category.check_box :name, {multiple: true}, '日帰り可',nil
+            %label 日帰り可
+            %br/
+            = category.check_box :name, {multiple: true}, '宿泊可',nil
+            %label 宿泊可
+            -# - [ 1, 2, 3].each do |name|
+            -#   = category.check_box(:name, { multiple:true }, name, nil)
+        .form-list
           #star
             .form-text 評価
             = f.hidden_field :rate, id: :review_star
         .form-button
           = f.submit "投稿する",class:"button"
-= render "reviews/footer"
+-# = render "reviews/footer"
