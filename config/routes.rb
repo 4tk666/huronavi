@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :reviews do
     collection  do 
       get 'prefecture' 
+      get 'category'
     end
     resources :comments
   end

@@ -1,0 +1,10 @@
+Category.create!([{name:"露天風呂"},
+                  {name:"天然温泉"},
+                  {name:"貸切"},
+                  {name:"大浴場"},
+                  {name:"日帰り可"},
+                  {name:"宿泊可"},
+                  {name:"サウナ"},
+                  {name:"旅館"},
+                  {name:"足湯"}
+])

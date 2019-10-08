@@ -1,15 +1,15 @@
 class ReviewsController < ApplicationController
   before_action :review_find_id ,only: [:show,:edit,:update,:destroy]
   def index
-  @review = Review.all.limit(9).order(id: "DESC")
-  # @user = User.find(params[:id])
+    @review = Review.all.limit(9).order(id: "DESC") 
+    # @categoty = Review.find(params[:review_id])
   end
 
   def new
     @review = Review.new
-    @review.photos.build
-    @review.categories.build
     @prefecture  = Prefecture.where.not(ancestry: nil)
+    @review.photos.build
+    @review.category_reviews.build
   end
 
   def create
@@ -42,6 +42,11 @@ class ReviewsController < ApplicationController
     @prefecture = Prefecture.find(params[:prefecture_id])
     @reviews = @prefecture.reviews.order(created_at: :desc).all
   end
+  
+  def category
+    @category = Category_review.find(params[:category_id])
+    @category_review = @category.reviews.order(created_at: :desc).all
+  end
 
   private
     def review_params
@@ -56,7 +61,7 @@ class ReviewsController < ApplicationController
         :prefecture_id ,
         :rate,
         photos_attributes:[:id,:image],
-        categories_attributes:[:id, name:[]]
+        category_reviews_attributes:[:id,:category_id]
         ).merge(user_id: current_user.id) 
     end
 

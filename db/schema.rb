@@ -10,14 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_052133) do
+ActiveRecord::Schema.define(version: 2019_10_08_072048) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "name", null: false
-    t.bigint "review_id"
+    t.text "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["review_id"], name: "index_categories_on_review_id"
+  end
+
+  create_table "category_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "review_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_reviews_on_category_id"
+    t.index ["review_id"], name: "index_category_reviews_on_review_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,7 +94,8 @@ ActiveRecord::Schema.define(version: 2019_10_06_052133) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "categories", "reviews"
+  add_foreign_key "category_reviews", "categories"
+  add_foreign_key "category_reviews", "reviews"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "reviews"
