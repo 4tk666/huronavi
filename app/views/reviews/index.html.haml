@@ -1,9 +1,14 @@
 .contents-main
-  .contents-main__header
+  %header.contents-main__header
     .contents-main__header__photo
       .header-link
-        .huronavi 都道府県から探す
-        .huronavi カテゴリーから探す
+        .main-header 
+          = link_to root_path do
+            Huronavi
+        %nav
+          .huronavi 都道府県から探す
+        %nav
+          .huronavi カテゴリーから探す
         .login
           - if user_signed_in?
             .login-tomo

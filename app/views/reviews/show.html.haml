@@ -63,7 +63,7 @@
     = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true  do |f|
       = f.text_field :text, {class:"comment-form"}
       .submit-btn
-        = f.submit "コメントする",{class:"comment-btn"}
+        = f.submit "コメントする",{class:"comment-btn",id:"submit_btn"}
   .destory
     - if  user_signed_in? && current_user.id == @review.user_id
       = link_to  review_path ,  method: :delete  do
