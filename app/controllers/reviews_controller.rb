@@ -28,9 +28,15 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @prefecture  = Prefecture.where.not(ancestry: nil)
   end
 
   def update
+    if @review.update(review_params)
+      redirect_to root_path
+    else
+      redirect_to edit_review_path(@review)
+    end
   end
 
   def destroy

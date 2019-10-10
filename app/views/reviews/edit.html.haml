@@ -1,53 +1,130 @@
+-# .review-header
+-#   = link_to root_path do
+-#     = image_tag "https://i.gyazo.com/554fe2ee0c2ae70d9c1ac4e0984de66c.png" ,width:"400px" ,height:"200px"
 .review
   .review-form
     .review-form__title
-      レビューを投稿する
-    .review-form__post
-      = form_with model: @review, url:review_path do |f|
-        .form-list
-          .form-text タイトル
-          = f.text_field :title,{class:"form-title"}
-        .form-list
-          .form-text 画像の選択(４枚まで)
-          .form-list__photo
-            = f.fields_for :photos do |img|
-              .form-list__photo__image
-                %label
-                  .image
-                    = img.file_field :image,type:"file",name:"review[photos_attributes][0][image]",class:"image_post",id:"file_0"
-                    #image_0
-                %label
-                  .image
-                    = img.file_field :image,type:"file",name:"review[photos_attributes][1][image]",class:"image_post",id:"file_1"
-                    #image_1
-              .form-list__photo__image
-                %label
-                  .image
-                    = img.file_field :image,type:"file",name:"review[photos_attributes][2][image]",class:"image_post",id:"file_2"
-                    #image_2
-                %label
-                  .image
-                    = img.file_field :image,type:"file",name:"review[photos_attributes][3][image]",class:"image_post",id:"file_3"
-                    #image_3
-        .form-list
-          .form-text 感想
-          = f.text_field :text,{class:"form-title"}
-        .form-list
-          .form-text 都道府県
-        .form-list
-          .form-text アクセス方法
-          = f.text_field :address,{class:"form-title"}
-        .form-list
-          .form-text 価格
-          = f.text_field :price,{class:"form-title"}
-        .form-list
-          .form-text アクセス方法
-          = f.text_field :access,{class:"form-title"}
-        .form-list
-          .form-text 休館日
-          = f.text_field :holiday,{class:"form-title"}
-        .form-list
-          .form-text 入浴時間
-          = f.text_field :bath_time,{class:"form-title"}
-        .form-button
+      レビューを編集する
+    .review-form__many
+      = form_with model: @review ,url: review_path ,local: true do |f|
+        .review-form__many__photo
+          .form-list
+            %label 画像の選択
+            .form-list__photo
+              = f.fields_for :photos do |img|
+                .form-list__photo__image
+                  %label
+                    .image
+                      = img.file_field :image,type:"file",name:"review[photos_attributes][0][image]",class:"image_post",id:"file_0"
+                      #image_0
+                  %label
+                    .image
+                      = img.file_field :image,type:"file",name:"review[photos_attributes][1][image]",class:"image_post",id:"file_1"
+                      #image_1
+                  %label
+                    .image
+                      = img.file_field :image,type:"file",name:"review[photos_attributes][2][image]",class:"image_post",id:"file_2"
+                      #image_2
+                .form-list__photo__image
+                  %label
+                    .image
+                      = img.file_field :image,type:"file",name:"review[photos_attributes][3][image]",class:"image_post",id:"file_3"
+                      #image_3
+                  %label
+                    .image
+                      = img.file_field :image,type:"file",name:"review[photos_attributes][4][image]",class:"image_post",id:"file_4"
+                      #image_4
+                  %label
+                    .image
+                      = img.file_field :image,type:"file",name:"review[photos_attributes][5][image]",class:"image_post",id:"file_5"
+                      #image_5
+        .review-form__many__explanation
+          .form-list
+            .form-label
+              %label 
+                タイトル
+              %span.form-require 
+                必須
+            = f.text_field :title,placeholder: "タイトル",class:"form-title"
+          .form-list
+            .form-label
+              %label 
+                感想
+              %span.form-require 
+                必須
+            = f.text_area :text,{class:"form-title",id:"impressions"}
+        .review-form__many__region
+          .form-list
+            .form-label
+              %label 
+                都道府県
+              %span.form-require 
+                必須
+            = f.select :prefecture_id ,options_for_select(@prefecture.map{|p|[p.name, p.id]}) , prompt: "---"
+          .form-list
+            .form-label
+              %label 
+                住所
+              %span.form-require 
+                必須
+            = f.text_field :address,{class:"form-title"}
+          .form-list
+            .form-label
+              %label 
+                アクセス方法
+            = f.text_field :access,{class:"form-title"}
+          .form-list
+            .form-label
+              %label 
+                価格
+            = f.text_field :price,{class:"form-title"}
+          .form-list
+            .form-label
+              %label 
+                休館日
+            = f.text_field :holiday,{class:"form-title"}
+          .form-list
+            .form-label
+              %label 
+                入浴時間
+            = f.text_field :bath_time,{class:"form-title"}
+        .review-form__many__check
+          .review-form__many__check__title
+            カテゴリー選択(複数選択可)
+          .form-list
+            = f.fields_for :category_reviews do |category|
+              .check_box
+                = category.check_box :category_id, {name:"review[category_reviews_attributes][0][category_id]",id:"check_box"},'1',nil
+                %label 露天風呂
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][1][category_id]",id:"check_box"}, '2',nil
+                %label 天然温泉
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][2][category_id]",id:"check_box"}, '3',nil
+                %label 貸切
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][3][category_id]",id:"check_box"}, '4',nil
+                %label 大浴場
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][4][category_id]",id:"check_box"}, '5',nil
+                %label 日帰り可
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][5][category_id]",id:"check_box"}, '6',nil
+                %label 宿泊可
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][6][category_id]",id:"check_box"}, '7',nil
+                %label サウナ
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][7][category_id]"}, '8',nil
+                %label 旅館
+              .check_box
+                = category.check_box :category_id,  {name:"review[category_reviews_attributes][8][category_id]"}, '9',nil
+                %label 足湯
+        .review-form__many__rate
+          .form-list
+            #star
+              .form-text 評価
+              = f.hidden_field :rate, id: :review_star
+        .review-form__many__button
           = f.submit "投稿する",class:"button"
+-# = render "reviews/footer"

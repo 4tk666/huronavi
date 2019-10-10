@@ -1,5 +1,5 @@
-.contents
-  .item
-  .item
-  .item
-  .item
+.user
+  = @nickname
+  = image_tag "#{@icon}",alt:"画像の登録がされていません"
+  - @review.each do |review| 
+    = review.title

@@ -3,7 +3,6 @@ class Review < ApplicationRecord
   # validates :title,                presence: true
   # validates :photos,               presence: true
   # validates :prefecture_id ,       presence: true
-  has_many :likes, dependent: :destroy
   has_many :photos, dependent: :destroy
   belongs_to :prefecture
   has_many :categories, through: :category_reviews
