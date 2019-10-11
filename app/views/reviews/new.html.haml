@@ -6,7 +6,7 @@
       = form_with model: @review, url:reviews_path do |f|
         .review-form__many__photo
           .form-list
-            %label 画像の選択
+            %label 画像の選択(6枚まで)
             .form-list__photo
               = f.fields_for :photos do |img|
                 .form-list__photo__image
@@ -22,7 +22,6 @@
                     .image
                       = img.file_field :image,type:"file",name:"review[photos_attributes][2][image]",class:"image_post",id:"file_2"
                       #image_2
-                .form-list__photo__image
                   %label
                     .image
                       = img.file_field :image,type:"file",name:"review[photos_attributes][3][image]",class:"image_post",id:"file_3"
@@ -87,7 +86,7 @@
             = f.text_field :bath_time,{class:"form-title"}
         .review-form__many__check
           .review-form__many__check__title
-            カテゴリー選択(複数選択可)
+            %label カテゴリー選択(複数選択可)
           .form-list
             = f.fields_for :category_reviews do |category|
               .check_box
@@ -117,11 +116,11 @@
               .check_box
                 = category.check_box :category_id,  {name:"review[category_reviews_attributes][8][category_id]"}, '9',nil
                 %label 足湯
-        .review-form__many__rate
-          .form-list
-            #star
-              .form-text 評価
-              = f.hidden_field :rate, id: :review_star
+        -# .review-form__many__rate
+        -#   .form-list
+        -#     #star
+        -#       .form-text 評価
+        -#       = f.hidden_field :rate, id: :review_star
         .review-form__many__button
           = f.submit "投稿する",class:"button"
 -# = render "reviews/footer"

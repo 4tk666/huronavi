@@ -2,7 +2,9 @@ class ReviewsController < ApplicationController
   before_action :review_find_id ,only: [:show,:edit,:update,:destroy]
   def index
     @review = Review.all.limit(9).order(id: "DESC") 
-    # @categoty = Review.find(params[:review_id])
+    @categories = Category.all
+    @q = Review.ransack(params[:q])
+    @category =  @q.result(distinct: true).includes(:category)
   end
 
   def new
@@ -10,6 +12,7 @@ class ReviewsController < ApplicationController
     @prefecture  = Prefecture.where.not(ancestry: nil)
     @review.photos.build
     @review.category_reviews.build
+    @categories = Category.all
   end
 
   def create
@@ -50,8 +53,13 @@ class ReviewsController < ApplicationController
   end
   
   def category
-    @category = Category_review.find(params[:category_id])
+    @category = Category.find(params[:category_id])
     @category_review = @category.reviews.order(created_at: :desc).all
+  end
+
+  def  search
+    @q = Review.search(search_params)
+    @category = @q.result(distinct: true)
   end
 
   private
@@ -69,6 +77,10 @@ class ReviewsController < ApplicationController
         photos_attributes:[:id,:image],
         category_reviews_attributes:[:id,:category_id]
         ).merge(user_id: current_user.id) 
+    end
+
+    def search_params
+      params.require(:q).permit(:category_id_in)
     end
 
     def review_find_id

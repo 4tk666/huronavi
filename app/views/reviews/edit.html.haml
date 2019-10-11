@@ -92,34 +92,61 @@
           .review-form__many__check__title
             カテゴリー選択(複数選択可)
           .form-list
-            = f.fields_for :category_reviews do |category|
-              .check_box
-                = category.check_box :category_id, {name:"review[category_reviews_attributes][0][category_id]",id:"check_box"},'1',nil
-                %label 露天風呂
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][1][category_id]",id:"check_box"}, '2',nil
-                %label 天然温泉
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][2][category_id]",id:"check_box"}, '3',nil
-                %label 貸切
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][3][category_id]",id:"check_box"}, '4',nil
-                %label 大浴場
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][4][category_id]",id:"check_box"}, '5',nil
-                %label 日帰り可
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][5][category_id]",id:"check_box"}, '6',nil
-                %label 宿泊可
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][6][category_id]",id:"check_box"}, '7',nil
-                %label サウナ
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][7][category_id]"}, '8',nil
-                %label 旅館
-              .check_box
-                = category.check_box :category_id,  {name:"review[category_reviews_attributes][8][category_id]"}, '9',nil
-                %label 足湯
+            .check_box
+              %label 露天風呂
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][0][category_id]",id:"check_box"},'1',nil
+            .check_box
+              %label 天然温泉
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][1][category_id]",id:"check_box"},'2',nil
+            .check_box
+              %label 貸切
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][2][category_id]",id:"check_box"},'3',nil
+            .check_box
+              %label 大浴場
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][3][category_id]",id:"check_box"},'4',nil
+            .check_box
+              %label 日帰り可
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][4][category_id]",id:"check_box"},'5',nil
+            .check_box
+              %label 宿泊可
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][5][category_id]",id:"check_box"},'6',nil
+            .check_box
+              %label サウナ
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][6][category_id]",id:"check_box"},'7',nil
+            .check_box
+              %label 旅館
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][7][category_id]",id:"check_box"},'8',nil
+            .check_box
+              %label 足湯
+              = f.check_box :category_id, {name:"review[category_reviews_attributes][8][category_id]",id:"check_box"},'9',nil
+            -# = f.fields_for :category_reviews do |category|
+            -#   .check_box
+            -#     = category.check_box :category_id, {name:"review[category_reviews_attributes][0][category_id]",id:"check_box"},'1',nil
+            -#     %label 露天風呂
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][1][category_id]",id:"check_box"}, '2',nil
+            -#     %label 天然温泉
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][2][category_id]",id:"check_box"}, '3',nil
+            -#     %label 貸切
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][3][category_id]",id:"check_box"}, '4',nil
+            -#     %label 大浴場
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][4][category_id]",id:"check_box"}, '5',nil
+            -#     %label 日帰り可
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][5][category_id]",id:"check_box"}, '6',nil
+            -#     %label 宿泊可
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][6][category_id]",id:"check_box"}, '7',nil
+            -#     %label サウナ
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][7][category_id]"}, '8',nil
+            -#     %label 旅館
+            -#   .check_box
+            -#     = category.check_box :category_id,  {name:"review[category_reviews_attributes][8][category_id]"}, '9',nil
+            -#     %label 足湯
         .review-form__many__rate
           .form-list
             #star

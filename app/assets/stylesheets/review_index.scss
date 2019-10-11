@@ -1,8 +1,10 @@
 body{
   background: #1d1d1d;
+  color: #fff;
 }
 *{
   font-family: "Sawarabi Mincho", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+  color: #fff;
 }
 
 .contents-main{
@@ -100,12 +102,15 @@ body{
     text-align: center;
   }  
   &__text{
-    text-align: center;
-    font-size: 30px;
-    padding:40px 0;
-    color: #fff;
-    font-weight:normal;
-    letter-spacing: 0.1em;
+    padding:50px 0;
+    .new-title{
+      width: 1100px;
+      margin: 0 auto;
+      font-size: 35px;
+      font-weight:normal;
+      letter-spacing: 0.1em;
+      border-bottom: double 5px #AD2022;
+    }
   }
     &__list{
       width: 1100px;
@@ -126,65 +131,68 @@ body{
             display: flex;
             .review-title{
               font-size: 20px;
+              margin:0 0 20px 20px;
               color: black;
-              margin-left: 20px;
-            }
-            .review-link{
-              margin:0 25px 0 auto;
-            }
-            .link{
-              display: flex;
-              margin:0 0 0 auto;
-              .arrow{
-                color: #F1322C;
-                font-size: 25px;
-                margin-right: 7px;
-              }
-              .detalis{
-                color: #F1322C;
-                font-size: 18px;
-              }
             }
           }
         }
       }
+      &__new :hover{
+        opacity: 0.7;
+      }
     }
   &__prefecture{
-    width: 650px;
-    height: 600px;
-    background:white;
-    &__list{
-      text-align: center;
-      font-size: 20px;
-      height: 50px;
-      line-height: 70px;
+    padding:50px 0;
+    &__title{
+      width: 1100px;
+      margin: 0 auto;
+      font-size: 35px;
+      font-weight:normal;
+      letter-spacing: 0.1em;
+      border-bottom: double 5px #AD2022;
     }
-    &__all{
-        margin-top:10px;
+    &__list{
+      width: 1100px;
+      margin: 0 auto;
+      margin-top: 50px;
+      height: 100%;
       .japan{
-        padding:3px;
-        margin-top: 5px;
-        .region{ 
-          width: 150px;
-          margin: 0 10px;
-          span{
-            font-weight: bold;
-          }
+        padding: 14px 0;
+        .region{
+          font-weight:normal;
+          letter-spacing: 0.1em;
+          font-size: 20px ;
+          margin-bottom: 4px;
+        }
+        a{
+          text-decoration: none;
+          margin-right: 8px;
         }
         .list{
-          padding:3px;
-          pa
-          a{
-            color: black;
-            margin-right: 3px;
-          }
+          margin-top:4px;
+        }
+        .list :hover{
+          color:  #AD2022;
         }
       }
     }
   }
+  &__category{
+    padding-bottom:50px;
+    &__title{
+      width: 1100px;
+      margin: 0 auto;
+      font-size: 35px;
+      font-weight:normal;
+      letter-spacing: 0.1em;
+      border-bottom: double 5px #AD2022;
+    }
+    &__list{
+      width: 1100px;
+      margin: 0 auto;
+      margin-top: 50px;
+      height: 100%;
+    }
+  }
 }
 
-
-.link{
-  text-decoration: none;
-}

@@ -1,128 +1,60 @@
-// .image_post{
-//   display: none;
-// }
+.image_post{
+  display: none;
+}
 
-// .image{
-//   padding: 20px;
-//   width: 200px;
-//   height: 100px;
-//   margin: 10px;
-//   background-color: #F5F5F5;
-//   border: dashed 1px #ccc;
-//   position: relative;
-// }
-// .form-list__photo__image{
-//   display: flex;
-// }
+.image{
+  width: 100px;
+  height: 150px;
+  background-color: #F5F5F5;
+  border: dashed 1px #ccc;
+}
+.form-list__photo__image{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
 
-
-// #photo_0,
-// #photo_1,
-// #photo_2,
-// #photo_3{
-//   position: absolute;
-//   height: 142px;
-//   width: 242px;
-//   right: 0;
-//   top: 0;
-// }
-// .review-header{
-//   text-align: center;
-// }
-
-// .review{
-//   &-form{
-//     margin: 0 auto;
-//     height: 100%;
-//     width: 1000px;
-//     margin-top:100px;
-//     background-color: white;
-//     &__title{
-//       height: 80px;
-//       text-align: center;
-//       line-height: 80px;
-//       font-size: 30px;
-//       font-weight:bold;
-//     }
-//     &__post{
-//       height: 100%;
-//       border-top: 1px solid #f5f5f5;
-//       .form-list{
-//         text-align: center;
-//         padding: 40px 50px 0 50px;
-//         .form-text{
-//           font-size: 20px;
-//           padding-bottom: 10px;
-//           font-weight: bold;
-//         }
-//         .form-title{
-//           height:50px;
-//           width: 500px;
-//           padding: 10px;
-//         }
-//         &__photo{
-//           padding:50px 50px 60px 90px;
-//           &__image{
-//           display: flex;
-//           }
-//         }
-//       }
-//       .form-button{
-//         text-align: center;
-//         padding:30px 0px 30px 10px;
-//         .button{
-//           background-color:lightsteelblue;
-//           color: white;
-//           width: 200px;
-//           height: 30px;
-//         }
-//       }
-//     }
-//   }
-// }
-// .review-form{
-//   margin: 0 auto;
-//   height: 100%;
-//   width: 1000px;
-//   margin-top:100px;
-//   background-color: #f0f8ff;
-//   &__title{
-//     height: 80px;
-//     text-align: center;
-//     line-height: 80px;
-//     font-size: 30px;
-//     font-weight:bold;
-//   }
-//   &__post{
-//     height: 100%;
-//     border-top: 1px solid #f5f5f5;
-//     .form-list{
-//       display: flex;
-//       &__photo{
-//         margin: 0 auto;
-//       }
-//     }
-//   }
-// }
+#photo_0,
+#photo_1,
+#photo_2,
+#photo_3,
+#photo_4,
+#photo_5{
+  height: 150px;
+  width: 100px;
+  top: 0;
+  right: 0;
+}
+  button{
+        background-color:red;
+        margin-top:5px;
+        width:100%;
+        color: white;
+        border-radius: 4px;
+  } 
+  
 .review{
   margin-top: 90px;
   .review-form{
     width: 800px;
     height: 100%;
     margin: 0 auto;
-    background-color: #fff;
     &__title{
-      text-align: center;
-      padding: 30px 0 ;
-      border-bottom: 1px solid #eee;
-      font-weight: bold;
-      font-size: 20px;
+      font-size: 35px;
+      font-weight:normal;
+      letter-spacing: 0.1em;
+      border-bottom: double 5px #AD2022;
     }
     &__many{
+      margin-top:50px;
       height: 100%;
+      background-color: #fff;
       &__photo{
         border-bottom: 1px solid #eee;
         padding: 40px;
+        &__image{
+          display: flex;
+        }
       }
       &__explanation{
         border-bottom: 1px solid #eee;
@@ -131,9 +63,6 @@
           margin-top:20px;
           .form-label{
             margin-bottom:8px;
-            label{
-              font-weight: bold;
-            }
             .form-require {
               color: #F1322C;
             }
@@ -160,14 +89,11 @@
           margin-top:25px;
           .form-label{
             margin-bottom:8px;
-            label{
-              font-weight: bold;
-            }
             .form-require {
               color: #F1322C;
             }
           }
-          #review_prefecture_id,.form-title{
+          .form-title{
             height: 48px;
             padding: 0 16px;
             border-radius: 4px;
@@ -177,15 +103,28 @@
             line-height: 1.5;
             width: 55%;
           }
+          #review_prefecture_id{
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            width: 60%;
+          }
         }
       }
       &__check{
         padding: 40px;
         &__title{
-          font-weight: bold;
+          margin-bottom: 10px;
         }
         .check_box{
           margin-top:5px;
+          label{
+          font-weight: normal;
+          }
         }
       }
       &__rate{
@@ -193,7 +132,6 @@
         margin-top: 10px;
         .form-text{
           margin-bottom: 10px;
-          font-weight: bold;
         }
       }
       &__button{
@@ -212,4 +150,15 @@
       }
     }
   }
+}
+
+label{
+  color: black;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.form-title,select{
+  color: black;
 }
