@@ -1,4 +1,5 @@
 .contents-main__title 
+  .aaaa
   .contents-main__title__list 
     .contents-main__title__list__huro
       Huronavi
@@ -43,3 +44,6 @@
     = search_form_for(@q, url:search_reviews_path) do |f|
       = f.collection_check_boxes :category_id_in, @categories, :id, :name 
       = f.submit
+-# .ddd
+-#   - @prefecture.each do |prefecture|
+-#     = link_to "#{prefecture.name}", prefecture_reviews_path(prefecture_id: prefecture.id) 

@@ -1,22 +1,26 @@
 .prefecture{
   width: 900px;
   height: 100%;
-  background: white;
   margin: 0 auto;
+  padding:50px 0;
   &__name{
-    text-align: center;
+    font-size: 35px;
+    font-weight:normal;
+    letter-spacing: 0.1em;
+    border-bottom: double 5px #AD2022;
   }
   &__review{
+    padding-top:50px;
     margin-top:30px;
     &__list{
       display: flex;
       padding: 20px;
-      background: #f4f4f4;
-      border-left: solid 6px black;
+      background: #fff;
+      border-left: solid 3px #AD2022;
       box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
       width: 700px;
       margin: 0 auto;
-      margin-top: 30px ;
+      margin-top: 40px ;
       &__huro{
         margin: 0; 
         padding: 0;
@@ -28,13 +32,22 @@
           width: 100%;
           margin-left:25px;
           &__title{
-            font-size:20px;
+            font-size:25px;
             color: black;
-            font-weight: bold;
             margin-bottom:5px;
+            font-weight:normal;
+            letter-spacing: 0.1em;
+            border-bottom: double 5px #AD2022;
+          }
+          &__region{
+            color: black;
           }
         }
       }
     }
+    &__list :hover{
+      opacity: 0.5;
+    }
   }
 }
+

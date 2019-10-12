@@ -3,7 +3,11 @@ class CommentsController < ApplicationController
   def create 
     @comment = Comment.new(comment_parmas) 
     @comment.save
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to review_path(params[:review_id])  }
+      format.json
+    end
+    # redirect_to root_path
   end
   private 
     def comment_parmas
