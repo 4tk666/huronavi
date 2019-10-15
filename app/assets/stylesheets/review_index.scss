@@ -1,21 +1,27 @@
-// html{
-//   height: 100%;
-//   background: #1d1d1d;
-// }
-body{
+html{
+  height: 100%;
   background: #1d1d1d;
-  color: #fff;
 }
+body{
+  color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main{
+  flex: 1;
+}
+
 *{
   font-family: "Sawarabi Mincho", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
   color: #fff;
   margin:0;
   padding:0;
 }
-
 .contents-main{
   width: 100%;
-  height: 100%;
   &__header{
     width: 100%;
     background:rgb(3, 3, 3);
@@ -37,33 +43,105 @@ body{
             font-family: Georgia, serif;
           }
         }
-        nav{
-          width: 15%;
-          text-align: center;
-          line-height:80px;
-          cursor: pointer;
-          color: #fff;
-          font-size: 14px;
-          height: 50px;
+        .main-header :hover{
+          color:  #AD2022;
         }
-        .login{
-          width: 15%;
-          display: flex;
-          .login-tomo{
+        .nav-header{
+          width: 45%;
+          position: relative;
+          &__before{
             width: 100%;
-            text-align: center;
-            .signup{
+            display: flex;
+            nav{
+              width: 30%;
               text-align: center;
-              line-height: 80px;
-              text-decoration: none;
+              line-height:80px;
+              cursor: pointer;
               color: #fff;
               font-size: 14px;
+              height: 50px;
+              a{
+                text-decoration: none;
+              }
+            } 
+            nav :hover{
+              color:  #AD2022;
+              text-decoration: underline;
             }
+            .login{
+              width: 25%;
+              display: flex;
+              .login-tomo{
+                width: 100%;
+                text-align: center;
+                .signup{
+                  text-align: center;
+                  line-height: 80px;
+                  text-decoration: none;
+                  color: #fff;
+                  font-size: 14px;
+                }
+              }
+              .login-tomo :hover{
+                color:  #AD2022;
+                text-decoration: underline;
+              }
+            }
+            .search{
+              font-size: 20px;
+              width: 15%;
+              text-align: center;
+              line-height: 80px;
+            }  
+            .search :hover{
+              color:  #AD2022;
+            }
+          }
+          #search-form{
+            position: absolute;
+            line-height: 80px;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            .review_search{
+              display: flex;
+              margin: 0 auto;
+              width: 50%;
+              .search-box{
+                position: relative;
+                #search-icon{
+                  position: absolute;
+                  z-index: 1;
+                  color: #6b6b6b;
+                  top:31px;
+                  left: 8px;
+                }
+                #q_title_cont{
+                  margin-right:20px;
+                  width: 250px;
+                  padding: 8px 20px 8px 38px;
+                  border: 0;
+                  outline: 0;
+                  font-size: 12px;
+                }
+              }
+              .search-times :hover{
+                color:  #AD2022;
+                #times-icon{
+                  font-size:20px;
+                  font-weight: 100;
+                }
+              }
+            }
+          }
+          .search-form{
+            display: none;
           }
         }
       }
     }
   }
+
   &__title{
     background-image: url("https://i.gyazo.com/a46ec269d775449cd4ae1b69686db07f.jpg");
     background-repeat: 		no-repeat;
@@ -71,7 +149,7 @@ body{
     -moz-background-size:	cover;
     background-size:		cover; 	                        
     height: 710px;    
-    margin: 0 auto;     
+    margin: 0 auto;   
     &__list {
       &__huro{
         text-align: center;
@@ -94,13 +172,12 @@ body{
           border-bottom:4px solid #AD2022;
           border-radius: 4px;
         }
-        .post :hover{
-          cursor: pointer;
-          text-decoration: none;
-          background:#AD2022;
-          transform: translate3d(0, 4px, 0);
-          border-bottom: none;
-        }
+      }
+      &__button :hover{
+        cursor: pointer;
+        background:#AD2022;
+        transform: translate3d(0, 4px, 0);
+        border-bottom: none;
       }
     } 
   }
@@ -125,20 +202,18 @@ body{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr ;
         gap: 50px;
-        grid-template-rows: 330px 330px;
+        grid-template-rows: 340px 340px;
         margin-top: 6px;
         margin-bottom: 50px;
         &__image{
           background: #fff;
-          .review-image{
-            margin: 16px;
-          }
           &__name{
             display: flex;
             .review-title{
               font-size: 20px;
-              margin:0 0 20px 20px;
+              line-height: 50px;
               color: black;
+              margin-left: 10px;
             }
           }
         }
@@ -179,6 +254,7 @@ body{
         }
         .list :hover{
           color:  #AD2022;
+          text-decoration: underline;
         }
       }
     }
@@ -200,5 +276,27 @@ body{
       height: 100%;
     }
   }
+}
+
+.conntents{
+  position: relative;
+}
+.prefecture-list{
+  display: none;
+}
+
+.prefecture-url{
+  height: 250px;
+  background: #fff;
+  width: 100%;
+  position: absolute;
+  a{
+    color: black;
+  }
+}
+
+
+#q_title_cont{
+  color: black;
 }
 

@@ -13,7 +13,7 @@ class Review < ApplicationRecord
   accepts_nested_attributes_for :photos
 
   def self.ransackable_attributes auth_object = nil
-    %w[category_id]
+    %w[title]
   end
 
   def self.ransackable_associations auth_object = nil

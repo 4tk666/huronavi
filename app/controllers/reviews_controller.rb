@@ -3,9 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @review = Review.all.limit(9).order(id: "DESC") 
-    @categories = Category.all
-    @q = Review.ransack(params[:q])
-    @category =  @q.result(distinct: true).includes(:category)
+    @prefecture  = Prefecture.where.not(ancestry: nil)
   end
 
   def new
@@ -51,17 +49,10 @@ class ReviewsController < ApplicationController
   def prefecture
     @prefecture = Prefecture.find(params[:prefecture_id])
     @reviews = @prefecture.reviews.order(created_at: :desc).all
+    @length = @reviews.length
   end
   
-  def category
-    @category = Category.find(params[:category_id])
-    @category_review = @category.reviews.order(created_at: :desc).all
-  end
 
-  def  search
-    @q = Review.search(search_params)
-    @category = @q.result(distinct: true)
-  end
 
   private
     def review_params
@@ -80,9 +71,9 @@ class ReviewsController < ApplicationController
         ).merge(user_id: current_user.id) 
     end
 
-    def search_params
-      params.require(:q).permit(:category_id_in)
-    end
+    # def search_params
+    #   params.require(:q).permit(:title_cont)
+    # end
 
     def review_find_id
       @review = Review.find(params[:id])

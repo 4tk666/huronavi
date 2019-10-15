@@ -1,59 +1,69 @@
-.list
-  .list_contents
-    .list_contents__title
-      %p
-        タイトル:
-        = @review.title
-    .list_contents__main
-      .list_contents__main__photo 
-        .list_contents__main__photo__list
-          = image_tag "#{@review.photos[0].image}",width:"600px",height:"400px",class:"main-image"
-        .list_contents__main__photo__sub
-          - @review.photos.each do |photo|
-            = image_tag "#{photo.image}",width:"60px",height:"60px",class:"sub-image"
-      .list_contents__main__review
-        .list_contents__main__review__huro
-          .review-title 住所
-          .review-name
-            = @review.prefecture.name
-            = @review.address
-        .list_contents__main__review__huro
-          .review-title 価格
-          .review-name
-            = @review.price
-        .list_contents__main__review__huro
-          .review-title アクセス
-          .review-name
-            = @review.access
-        .list_contents__main__review__huro
-          .review-title 休館日
-          .review-name
-            = @review.holiday
-        .list_contents__main__review__huro
-          .review-title 入浴時間
-          .review-name
-            = @review.bath_time
-        .list_contents__main__review__text
-          = @review.text
-  .comments
-    .comments-huro
-      - @comments.each do |comment|
-        .comments-huro__list
-          .comment-user
-            = image_tag "#{comment.user.icon}",width:"40px",height:"40px",class:"user-icon"
-            .comment-nickname
-              = comment.user.nickname
-          .comment-text
-            .comment-text__box
-              %p 
-                = comment.text
-    = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true ,id:"submit_btn" do |f|
-      = f.text_area :text, {class:"comment-form"}
-      .submit-btn
-        = f.submit "コメントする",{class:"comment-btn"}
-  .destory
-    - if  user_signed_in? && current_user.id == @review.user_id
-      = link_to  review_path ,  method: :delete  do
-        %button 削除
-      = link_to  edit_review_path(@review)  do
-        %button 編集
+%main
+  .list
+    .list_contents
+      .list_contents__title
+        .list_contents__title__left
+          %p
+            タイトル:
+            = @review.title
+        .delete-update
+          - if  user_signed_in? && current_user.id == @review.user_id
+            = link_to  review_path ,  method: :delete  do
+              %button.delete-btn 削除
+            = link_to  edit_review_path(@review)  do
+              %button.updete-btn 編集
+      .list_contents__main
+        .list_contents__main__photo 
+          .list_contents__main__photo__list
+            = image_tag "#{@review.photos[0].image}",width:"600px",height:"400px",class:"main-image"
+          .list_contents__main__photo__sub
+            - @review.photos.each do |photo|
+              = image_tag "#{photo.image}",width:"60px",height:"60px",class:"sub-image"
+        .list_contents__main__review
+          .list_contents__main__review__huro
+            .review-title 住所
+            .review-name
+              = @review.prefecture.name
+              = @review.address
+          .list_contents__main__review__huro
+            .review-title 価格
+            .review-name
+              = @review.price
+          .list_contents__main__review__huro
+            .review-title アクセス
+            .review-name
+              = @review.access
+          .list_contents__main__review__huro
+            .review-title 休館日
+            .review-name
+              = @review.holiday
+          .list_contents__main__review__huro
+            .review-title 入浴時間
+            .review-name
+              = @review.bath_time
+          .list_contents__main__review__huro
+            .review-title カテゴリ
+            %span
+              - @review.category_reviews.each do |category_review|
+                = category_review.category.name
+          .list_contents__main__review__text
+            .review-title 感想
+            .text-box
+              %p
+                = @review.text
+    .comments
+      .comments-huro
+        - @comments.each do |comment|
+          .comments-huro__list
+            .comment-user
+              = image_tag "#{comment.user.icon}",width:"40px",height:"40px",class:"user-icon"
+              .comment-nickname
+                = comment.user.nickname
+            .comment-text
+              .comment-text__box
+                %p 
+                  = comment.text
+      = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true ,id:"submit_btn" do |f|
+        = f.text_area :text, {class:"comment-form"}
+        .submit-btn
+          = f.submit "コメントする",{class:"comment-btn"}

@@ -1,7 +1,6 @@
 .image_post{
   display: none;
 }
-
 .image{
   width: 100px;
   height: 150px;
@@ -52,6 +51,16 @@
       &__photo{
         border-bottom: 1px solid #eee;
         padding: 40px;
+        .form-require{
+          color: #ffffff;
+          background-color: #ea352d;
+          font-size: 12px;
+          padding: 2px 4px;
+          margin: 0 0 0 8px;
+          border-radius: 2px;
+          height: 15px;
+          line-height: 15px;
+        }
         &__image{
           display: flex;
         }
@@ -132,20 +141,13 @@
       &__check{
         padding: 40px;
         &__title{
-          margin-bottom: 10px;
+          margin-bottom: 20px;
         }
         .check_box{
-          margin-top:5px;
+          margin-top:10px;
           label{
           font-weight: normal;
           }
-        }
-      }
-      &__rate{
-        text-align: center;
-        margin-top: 10px;
-        .form-text{
-          margin-bottom: 10px;
         }
       }
       &__button{
@@ -161,6 +163,12 @@
           border-bottom: 4px solid #AD2022;
           border-radius: 4px;
         }
+      }
+      &__button :hover{
+        cursor: pointer;
+        background:#AD2022;
+        transform: translate3d(0, 4px, 0);
+        border-bottom: none;
       }
     }
   }

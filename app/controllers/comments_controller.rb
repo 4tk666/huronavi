@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
       format.html { redirect_to review_path(params[:review_id])  }
       format.json
     end
-    # redirect_to root_path
   end
+  
   private 
     def comment_parmas
       params.require(:comment).permit(:text).merge(user_id: current_user.id ,review_id: params[:review_id])

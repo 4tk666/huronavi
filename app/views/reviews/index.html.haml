@@ -1,23 +1,27 @@
-.contents-main__title 
-  .aaaa
-  .contents-main__title__list 
-    .contents-main__title__list__huro
-      Huronavi
-    .contents-main__title__list__button
-      = link_to "投稿する", new_review_path,class: 'post'
-.contents-main__text
-  .new-title
-    新着投稿
-.contents-main__list
-  .contents-main__list__new
-    - @review.each do |review|
-      = link_to review_path(review) ,class:"link" do
-        .contents-main__list__new__image
-          = image_tag "#{review.photos[0].image}",width:"90%",height:"260px",class:"review-image"
-          .contents-main__list__new__image__name
-            %p.review-title
-              = review.title
-= render "prefecture_link"
+%main
+  .prefecture-list.prefecture-url
+    - @prefecture.each do |prefecture|
+      = link_to "#{prefecture.name}",prefecture_reviews_path(prefecture_id: prefecture.id)
+  .contents-main__title 
+    .contents-main__title__list 
+      .contents-main__title__list__huro
+        Huronavi
+      .contents-main__title__list__button
+        = link_to "投稿する", new_review_path,class: 'post'
+  .contents-main__text
+    .new-title
+      新着投稿
+  .contents-main__list
+    .contents-main__list__new
+      - @review.each do |review|
+        = link_to review_path(review) ,class:"link" do
+          .contents-main__list__new__image
+            = image_tag "#{review.photos[0].image}",width:"100%",height:"260px",class:"review-image"
+            .contents-main__list__new__image__name
+              %p.review-title
+                タイトル:
+                = review.title
+  = render "prefecture_link"
 -# .aaa  
 -#   = link_to category_reviews_path(category_id:1) ,method: :get do
 -#     aaaa
@@ -37,13 +41,13 @@
 -#     aaaa
 -#   = link_to category_reviews_path(category_id:9) ,method: :get do
 -#     aaaa
-.contents-main__category
-  .contents-main__category__title
-    カテゴリーから探す
-  .contents-main__category__list
-    = search_form_for(@q, url:search_reviews_path) do |f|
-      = f.collection_check_boxes :category_id_in, @categories, :id, :name 
-      = f.submit
+-# .contents-main__category
+-#   .contents-main__category__title
+-#     カテゴリーから探す
+-#   .contents-main__category__list
+-#     = search_form_for(@q, url:search_reviews_path) do |f|
+-#       = f.collection_check_boxes :category_id_in, @categories, :id, :name 
+-#       = f.submit
 -# .ddd
 -#   - @prefecture.each do |prefecture|
 -#     = link_to "#{prefecture.name}", prefecture_reviews_path(prefecture_id: prefecture.id) 

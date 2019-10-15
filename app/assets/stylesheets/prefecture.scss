@@ -1,6 +1,5 @@
 .prefecture{
   width: 900px;
-  height: 100%;
   margin: 0 auto;
   padding:50px 0;
   &__name{
@@ -14,7 +13,7 @@
     margin-top:30px;
     &__list{
       display: flex;
-      padding: 20px;
+      padding: 20px ;
       background: #fff;
       border-left: solid 3px #AD2022;
       box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
@@ -51,3 +50,6 @@
   }
 }
 
+.prefecture__review__list__huro__right__category{
+  color: black;
+}

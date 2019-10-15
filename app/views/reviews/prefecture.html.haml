@@ -1,17 +1,23 @@
-.prefecture
-  .prefecture__name
-    = @prefecture.name
-    の投稿
-  .prefecture__review
-    - @reviews.each do |review|
-      = link_to review_path(review) ,class:"link" do
-        .prefecture__review__list
-          .prefecture__review__list__huro
-            .prefecture__review__list__huro__left
-              = image_tag "#{review.photos[0].image}",width:"200px",height:"200px"
-            .prefecture__review__list__huro__right
-              .prefecture__review__list__huro__right__title
-                = review.title
-              .prefecture__review__list__huro__right__region
-                = @prefecture.name
-                = review.address
+%main
+  .prefecture
+    .prefecture__name
+      = @prefecture.name
+      の投稿は
+      = @length
+      件です
+    .prefecture__review
+      - @reviews.each do |review|
+        = link_to review_path(review) ,class:"link" do
+          .prefecture__review__list
+            .prefecture__review__list__huro
+              .prefecture__review__list__huro__left
+                = image_tag "#{review.photos[0].image}",width:"200px",height:"200px"
+              .prefecture__review__list__huro__right
+                .prefecture__review__list__huro__right__title
+                  = review.title
+                .prefecture__review__list__huro__right__region
+                  = @prefecture.name
+                  = review.address
+                .prefecture__review__list__huro__right__category
+                  - review.category_reviews.each do |f|
+                    = f.category.name

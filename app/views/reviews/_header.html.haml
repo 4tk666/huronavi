@@ -1,23 +1,35 @@
-.contents-main
-  %header.contents-main__header
-    .contents-main__header__photo
-      .header-link
-        .main-header 
-          = link_to root_path do
-            Huronavi
-        %nav
-          .huronavi#prefecture
-            都道府県から探す
-        %nav
-          .huronavi カテゴリーから探す
-        .login
-          - if user_signed_in?
-            .login-tomo
-              = link_to "マイページ",user_path(current_user), class: 'signup'
-              = link_to  destroy_user_session_path, method: :delete do
-                ログアウト
-          - else
-            .login-tomo
-              = link_to "ログイン", new_user_session_path, class: 'signup'
-            .login-tomo
-              = link_to "新規登録", new_user_registration_path, class: 'signup'
+.conntents
+  .contents-main
+    %header.contents-main__header
+      .contents-main__header__photo
+        .header-link
+          .main-header 
+            = link_to root_path do
+              Huronavi
+          .nav-header
+            .nav-header__before
+              %nav
+                .huronavi#prefecture
+                  都道府県から探す
+              %nav
+                = link_to "レビューを投稿する", new_review_path
+              .login
+                - if user_signed_in?
+                  .login-tomo
+                    = link_to "マイページ",user_path(current_user), class: 'signup'
+                    -# = link_to  destroy_user_session_path, method: :delete do
+                    -#   ログアウト
+                - else
+                  -# .login-tomo
+                  -#   = link_to "ログイン", new_user_session_path, class: 'signup'
+                  .login-tomo
+                    = link_to "新規登録", new_user_registration_path, class: 'signup'
+              .search
+                = fa_icon "search",id:"search-icon"
+            .search-form#search-form
+              = search_form_for(@q, url:search_reviews_path) do |f|
+                .search-box
+                  = fa_icon "search",id:"search-icon"
+                  = f.search_field :title_cont
+                .search-times
+                  = fa_icon "times",id:"times-icon"
