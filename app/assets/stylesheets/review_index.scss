@@ -296,3 +296,80 @@ nav :not(.region){
   line-height:80px;
 }
 
+@media screen and (max-width:480px){
+  html{
+  width: auto;
+  }
+
+  // .contents-main__header{
+  //   height: 50px;
+  // }
+
+  .main-header a{
+    font-size: 25px;
+  }
+
+  .nav-header {
+    display: none;
+  }
+
+  .contents-main__title{
+    height: 250px;
+  }
+
+  .contents-main__title__list__huro{
+    font-size: 30px;
+    padding-top: 40px;
+  }
+
+  .contents-main__title__list__button a{
+    width: 20px;
+    height: 30px;
+    padding: 0;
+  }
+  
+  .contents-main__text{
+    width:  auto;
+    padding: 20px 0 ;
+    .new-title{
+      width:  300px;
+      font-size: 20px;
+    }
+  }
+
+  .contents-main__list{
+    width: 300px;
+  }
+
+  .contents-main__list__new{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr)) ;
+    // grid-template-columns: none;
+    gap: 50px;
+    grid-template-rows: 240px 240px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .contents-main__list__new__image__name{
+    height: 30px;
+    .review-title{
+    font-size: 13px;
+    line-height: 30px;
+    }
+  }
+
+  // .contents-main__list__new__image{
+  //   height: 100%;
+  //   .review-image{
+  //     height:100%;
+  //   }
+  // }
+
+  .contents-main__prefecture__title{
+    width:  300px;
+    font-size: 20px;
+  }
+  .contents-main__prefecture__list{
+    width: auto;
+  }
+}
