@@ -3,43 +3,49 @@
   &__signup{
     width:  300px;
     margin: 0 auto ;
-    background-color: rgb(245, 245, 245);
+    background-color: whitesmoke;
     padding:30px;
-    margin-top:100px;
+    margin-top:50px;
     &__title{
       text-align: center;
       h2{
         font-size: 20px;
+        color: black;
       }
     }
-    .field{
-    position: relative;
-    margin: 40px 3%;
-      .user-list{
-        font: 15px/24px sans-serif;
-        box-sizing: border-box;
-        width: 100%;
-        margin: 8px 0;
-        padding: 0.3em;
+    .form{
+      margin:25px 0;
+      .field{
+      position: relative;
+        .user-list{
+          font: 15px/24px sans-serif;
+          box-sizing: border-box;
+          width: 100%;
+          margin: 8px 0;
+          padding: 0.3em;
+          transition: 0.3s;
+          border: 1px solid #1b2538;
+          border-radius: 4px;
+          outline: none;
+          padding-left: 40px;
+        }
+        .user-icon{
+        position: absolute;
+        top: 8px;
+        left: 0;
+        padding: 9px 8px;
         transition: 0.3s;
-        border: 1px solid #1b2538;
-        border-radius: 4px;
-        outline: none;
-        padding-left: 40px;
-      }
-      .user-icon{
-      position: absolute;
-      top: 8px;
-      left: 0;
-      padding: 9px 8px;
-      transition: 0.3s;
-      color: black;
+        color: black;
+        }
+        input{
+          color: #000;
+        }
       }
     }
     .actions{
       text-align: center;
       .button{
-        background-color:lightsteelblue;
+        background-color:#F1322C;
         color: white;
         width: 200px;
         height: 30px;
@@ -57,9 +63,10 @@
     line-height: 65px;
     h3{
       font-size: 14px;
+      color: black;
     }
     .path{
-      color: #3897F0;
+      color:#F1322C;
       font-weight: 600;
       cursor: pointer;
       text-decoration:none;
@@ -67,3 +74,29 @@
     }
   }
 }
+
+.registration__user{
+  height: 80px;
+  width: 300px;
+  background-color: whitesmoke;
+  margin: 0 auto;
+  padding: 30px;
+  margin-top:10px;
+  &__test{
+    margin-bottom:10px;
+    font-weight: bold;
+  }
+  &__test,&__mail,&__password {
+    color: black;
+    span{
+      margin-left: 20px;
+      color: black;
+    }
+  }
+}
+
+
+#user_icon{
+  margin-top:10px;
+}
+

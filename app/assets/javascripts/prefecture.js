@@ -1,12 +1,11 @@
 $(function(){
   $("#prefecture").on("mouseover",function(){
-    $(".prefecture-url").removeClass("prefecture-list");
+    $(".prefecture-list").removeClass("prefecture-url");
   });
-  $(".contents-main__title").on("mouseover",function(){
-    $(".prefecture-url").addClass("prefecture-list");
+  $(".prefecture-url").on("mouseleave",function(){
+    $(".prefecture-list").addClass("prefecture-url");
   });
 });
-
 $(function(){
   $("#search-icon").on("click",function(){
     $(".nav-header__before").hide();

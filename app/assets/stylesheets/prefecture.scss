@@ -7,19 +7,35 @@
     font-weight:normal;
     letter-spacing: 0.1em;
     border-bottom: double 5px #AD2022;
+    .prefecture__nickname{
+      width: 50%;
+    }
+    .logout{
+      width: 50%;
+      text-align: right;
+      a{
+        text-decoration: none;
+        background: #F1322C;
+        padding: 4px;
+        border-radius: 2px;
+        margin-bottom: 4px;
+        font-size: 18px;
+      }
+    }
+  }
+  #prefecture-huro{
+      display: flex
   }
   &__review{
-    padding-top:50px;
-    margin-top:30px;
+    padding-top:30px;
     &__list{
       display: flex;
       padding: 20px ;
       background: #fff;
       border-left: solid 3px #AD2022;
       box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
-      width: 700px;
       margin: 0 auto;
-      margin-top: 40px ;
+      margin-top: 60px ;
       &__huro{
         margin: 0; 
         padding: 0;
@@ -37,9 +53,34 @@
             font-weight:normal;
             letter-spacing: 0.1em;
             border-bottom: double 5px #AD2022;
+            display: flex;
           }
           &__region{
             color: black;
+            margin: 20px 0;
+            border-bottom: dashed 1px #AD2022;
+            span{
+              color: black;
+              margin-left: 10px;
+            }
+          }
+          &__category{
+            color: black;
+            margin: 20px 0;
+            border-bottom: dashed 1px #AD2022;
+            span{
+              color: black;
+              margin-left: 10px;
+            }
+          }
+          &__price{
+            color: black;
+            margin: 20px 0;
+            border-bottom: dashed 1px #AD2022;
+            span{
+              color: black;
+              margin-left: 10px;
+            }
           }
         }
       }
@@ -50,6 +91,9 @@
   }
 }
 
-.prefecture__review__list__huro__right__category{
+
+.review-title {
   color: black;
+  font-weight: 600;
+  margin-bottom: 5px;
 }

@@ -58,7 +58,7 @@ main{
               line-height:80px;
               cursor: pointer;
               color: #fff;
-              font-size: 14px;
+              font-size: 16px;
               height: 50px;
               a{
                 text-decoration: none;
@@ -79,7 +79,7 @@ main{
                   line-height: 80px;
                   text-decoration: none;
                   color: #fff;
-                  font-size: 14px;
+                  font-size: 16px;
                 }
               }
               .login-tomo :hover{
@@ -281,22 +281,18 @@ main{
 .conntents{
   position: relative;
 }
-.prefecture-list{
+.prefecture-url{
   display: none;
 }
 
-.prefecture-url{
-  height: 250px;
-  background: #fff;
-  width: 100%;
-  position: absolute;
-  a{
-    color: black;
-  }
-}
 
 
 #q_title_cont{
   color: black;
+  border-radius: 4px;
+}
+
+nav :not(.region){
+  line-height:80px;
 }
 

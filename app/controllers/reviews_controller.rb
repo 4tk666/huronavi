@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :review_find_id ,only: [:show,:edit,:update,:destroy]
+  before_action :redirect_to_registration,only: :new
 
   def index
     @review = Review.all.limit(9).order(id: "DESC") 
@@ -71,9 +72,9 @@ class ReviewsController < ApplicationController
         ).merge(user_id: current_user.id) 
     end
 
-    # def search_params
-    #   params.require(:q).permit(:title_cont)
-    # end
+    def redirect_to_registration
+      redirect_to new_user_registration_path unless user_signed_in?
+    end
 
     def review_find_id
       @review = Review.find(params[:id])

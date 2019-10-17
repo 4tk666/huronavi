@@ -9,13 +9,22 @@
           .prefecture__review__list
             .prefecture__review__list__huro
               .prefecture__review__list__huro__left
-                = image_tag "#{review.photos[0].image}",width:"200px",height:"200px"
+                = image_tag "#{review.photos[0].image}",width:"200px",height:"100%"
               .prefecture__review__list__huro__right
                 .prefecture__review__list__huro__right__title
+                  .review-title タイトル: 
                   = review.title
                 .prefecture__review__list__huro__right__region
-                  = review.prefecture.name
-                  = review.address
+                  .review-title 住所
+                  %span
+                    = review.prefecture.name
+                    = review.address
                 .prefecture__review__list__huro__right__category
-                  - review.category_reviews.each do |f|
-                    = f.category.name
+                  .review-title カテゴリー
+                  %span
+                    - review.category_reviews.each do |category_reviews|
+                      = category_reviews.category.name
+                .prefecture__review__list__huro__right__price
+                  .review-title 価格
+                  %span
+                    = review.price

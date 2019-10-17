@@ -1,7 +1,4 @@
 %main
-  .prefecture-list.prefecture-url
-    - @prefecture.each do |prefecture|
-      = link_to "#{prefecture.name}",prefecture_reviews_path(prefecture_id: prefecture.id)
   .contents-main__title 
     .contents-main__title__list 
       .contents-main__title__list__huro
@@ -21,7 +18,11 @@
               %p.review-title
                 タイトル:
                 = review.title
-  = render "prefecture_link"
+  .contents-main__prefecture
+    .contents-main__prefecture__title
+      都道府県から探す
+    .contents-main__prefecture__list
+      = render "prefecture_link"
 -# .aaa  
 -#   = link_to category_reviews_path(category_id:1) ,method: :get do
 -#     aaaa

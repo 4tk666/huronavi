@@ -51,7 +51,7 @@
             .text-box
               %p
                 = @review.text
-    .comments
+    .comments 
       .comments-huro
         - @comments.each do |comment|
           .comments-huro__list
@@ -62,8 +62,9 @@
             .comment-text
               .comment-text__box
                 %p 
-                  = comment.text
-      = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true ,id:"submit_btn" do |f|
-        = f.text_area :text, {class:"comment-form"}
-        .submit-btn
-          = f.submit "コメントする",{class:"comment-btn"}
+                  = comment.text 
+      - if current_user         
+        = form_with model:@comment, url:review_comments_path(@review.id) , method: :post,local: true ,id:"submit_btn" do |f|  
+          = f.text_area :text, {class:"comment-form"} 
+          .submit-btn
+            = f.submit "コメントする",{class:"comment-btn"}
