@@ -1,4 +1,4 @@
-.conntents
+.contents
   .contents-main
     %header.contents-main__header
       .contents-main__header__photo
@@ -6,13 +6,13 @@
           .main-header 
             = link_to root_path do
               Huronavi
+          .nav-header__bars
+            = fa_icon "bars",id:"bars-icon"
           .nav-header
             .nav-header__before
               %nav
                 .huronavi#prefecture
                   都道府県から探す
-                  .prefecture-list
-                    -# = render "reviews/prefecture_header"
               %nav
                 = link_to "レビューを投稿する", new_review_path
               .login
@@ -24,6 +24,8 @@
                     = link_to "新規登録", new_user_registration_path, class: 'signup'
               .search
                 = fa_icon "search",id:"search-icon"
+            .prefecture-list.prefecture-url
+              = render "reviews/prefecture_header"
             .search-form#search-form
               = search_form_for(@q, url:search_reviews_path) do |f|
                 .search-box
@@ -31,4 +33,3 @@
                   = f.search_field :title_cont
                 .search-times
                   = fa_icon "times",id:"times-icon"
-  -# .prefecture-list.prefecture-url

@@ -1,6 +1,7 @@
 $(function(){
   $("#prefecture").on("mouseover",function(){
     $(".prefecture-list").removeClass("prefecture-url");
+    // $("#prefecture").addClass("prefecture-header");
   });
   $(".prefecture-url").on("mouseleave",function(){
     $(".prefecture-list").addClass("prefecture-url");

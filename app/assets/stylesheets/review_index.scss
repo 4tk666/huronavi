@@ -278,25 +278,47 @@ main{
   }
 }
 
-.conntents{
-  position: relative;
-}
+
 .prefecture-url{
   display: none;
 }
 
+.prefecture-list{
+    width: 80%;
+    height: 550px;
+    background: whitesmoke;
+    z-index: 1;
+}
 
+.japan-list{
+  padding: 11px;
+  .region{
+    font-size: 18px;
+    color: black;
+  }
+  .prefecture-link{
+    margin:5px 0 0 10px;
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .prefecture-link :hover{
+    color:  #AD2022;
+    text-decoration: underline;
+  }
+}
 
 #q_title_cont{
   color: black;
   border-radius: 4px;
 }
 
-nav :not(.region){
-  line-height:80px;
+.nav-header__bars{
+  display: none;
 }
 
-@media screen and (max-width:480px){
+@media screen and (max-width:500px){
   html{
   width: auto;
   }
@@ -311,6 +333,17 @@ nav :not(.region){
 
   .nav-header {
     display: none;
+  }
+
+  .nav-header__bars{
+    display: block;
+    width: 45%;
+    text-align: right;
+    margin-right: 20px;
+    line-height: 85px;
+    #bars-icon{
+      font-size: 20px;
+    }
   }
 
   .contents-main__title{
@@ -370,6 +403,16 @@ nav :not(.region){
     font-size: 20px;
   }
   .contents-main__prefecture__list{
-    width: auto;
+    width: 300px;
+    .region{
+      span{
+      font-size: 20px;
+    }
+    }
+    .list{
+      a{
+        font-size: 10px;
+      }
+    }
   }
 }
