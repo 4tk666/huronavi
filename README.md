@@ -9,14 +9,16 @@
 
  ・非同期通信(Ajax+jQuery)コメント投稿機能
 
-  ・インフラ (AWS EC2)
+ ・ gem 'ransack' による検索機能
 
-  ・WEBサーバー (Nginx)
+ ・インフラ (AWS EC2)
 
-  ・Applicationサーバー (Unicorn)
+ ・WEBサーバー (Nginx)
 
-  ・データベース (MySQL)
+ ・Applicationサーバー (Unicorn)
 
-  ・ストレージ (AWS S3)
+ ・データベース (MySQL)
 
-  ・デプロイ自動化 (Capistrano)
+ ・ストレージ (AWS S3)
+
+ ・デプロイ自動化 (Capistrano)

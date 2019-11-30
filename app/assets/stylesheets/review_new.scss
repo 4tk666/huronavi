@@ -184,3 +184,26 @@ label{
 .form-title,select{
   color: black;
 }
+
+@media screen and (max-width:500px){
+
+  .review{
+    width: auto;
+  }
+
+  .review-form{
+    width: auto;
+    margin: 0;
+    
+  }
+
+  .review-form__title{
+    // width: 330px;
+    // font-size: 20px;
+    // margin: 0 auto;
+  }
+
+  .review-form__many{
+    // width: 330px
+  }
+}

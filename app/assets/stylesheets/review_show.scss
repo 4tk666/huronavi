@@ -185,13 +185,13 @@
   }
 
   .list_contents__title{
-    width:  400px;
+    width: 100%;
     font-size: 20px;
     margin: 0 auto;
   }
 
   .list_contents__main {
-    width:  400px;
+   width: 100%;
     margin: 0 auto;
     margin-top:30px;
   }
@@ -215,10 +215,36 @@
   }
 
   .comments {
-    width:  400px;
+    width: 100%;
+  }
+  
+  .comments-huro__list{
+    width: 330px;
+    margin: auto;
   }
 
   .comment-form{
-    width: 300px;
+    width: 100%;
   }
+
+  #submit_btn{
+    textarea{
+      width: 330px;
+      margin: 30px 0 auto;
+    }
+  }
+
+  .comments-huro{
+    width:auto;
+  }
+  .list_contents__main__review__huro{
+    width: 330px;
+    margin: auto;
+  }
+
+  .list_contents__main__review__text{
+    width: 330px;
+    margin: auto;
+  }
+
 }
